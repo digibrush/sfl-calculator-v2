@@ -22,6 +22,8 @@ Route::get('/testing', 'App\Http\Controllers\TestController@test');
 
 Route::get('/products/export', 'App\Http\Controllers\ExportController@export');
 
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
+
 Route::get('/quote/{id}/duplicate', 'App\Http\Controllers\QuoteController@duplicate');
 Route::get('/quote/{id}/template', 'App\Http\Controllers\QuoteController@template');
 Route::get('/quote/{id}/convert', 'App\Http\Controllers\QuoteController@convert');

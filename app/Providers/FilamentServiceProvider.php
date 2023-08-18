@@ -35,6 +35,11 @@ class FilamentServiceProvider extends ServiceProvider
                 'body.end',
                 fn (): View => view('layout.inspectlet'),
             );
+
+            Filament::registerRenderHook(
+                'body.end',
+                fn (): View => view('layout.botman'),
+            );
         });
     }
 }
