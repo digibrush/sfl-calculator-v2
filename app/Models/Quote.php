@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
+use Overtrue\LaravelVersionable\Versionable;
 
 class Quote extends Model implements Auditable
 {
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
+    use Versionable;
 
     /**
      * The attributes that are mass assignable.
@@ -48,6 +50,32 @@ class Quote extends Model implements Auditable
         'type',
         'title',
         'reference',
+        'countries',
+        'branches',
+        'online_hours',
+        'offline_hours',
+        'solutions',
+        'projects',
+        'online_cost',
+        'offline_cost',
+        'discount',
+        'discount_note',
+        'discount_amount',
+        'total_cost',
+        'standard_online_rate',
+        'standard_offline_rate',
+        'premium_online_rate',
+        'premium_offline_rate',
+        'converted',
+    ];
+
+    /**
+     * Versionable attributes
+     *
+     * @var array
+     */
+    protected $versionable = [
+        'title',
         'countries',
         'branches',
         'online_hours',
