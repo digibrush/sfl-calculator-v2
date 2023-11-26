@@ -13,6 +13,7 @@ use Database\Seeders\General\RatesSeeder;
 use Database\Seeders\General\RolesAndPermissionsSeeder;
 use Database\Seeders\Migration\MigrationClientsSeeder;
 use Database\Seeders\Migration\MigrationProductsSeeder;
+use Database\Seeders\Migration\MigrationQuoteSeeder;
 use Database\Seeders\Migration\MigrationRatesSeeder;
 use Database\Seeders\Migration\MigrationRegionSeeder;
 use Database\Seeders\Migration\MigrationTermsSeeder;
@@ -28,8 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RatesSeeder::class);
         $this->call(RolesAndPermissionsSeeder::class);
 //        $this->call(DevelopmentProductsSeeder::class);
-//        $this->call(DevelopmentCompaniesSeeder::class);
-//        $this->call(DevelopmentSectorsSeeder::class);
+        $this->call(DevelopmentCompaniesSeeder::class);
+        $this->call(DevelopmentSectorsSeeder::class);
         $this->call(DevelopmentUsersSeeder::class);
 //        $this->call(DevelopmentQuotesSeeder::class);
 //        $this->call(DevelopmentRegionSeeder::class);

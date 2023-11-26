@@ -9,8 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use OwenIt\Auditing\Contracts\Auditable;
+use Filament\Models\Contracts\FilamentUser;
 
-class User extends Authenticatable implements Auditable
+class User extends Authenticatable implements Auditable,FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -64,6 +65,11 @@ class User extends Authenticatable implements Auditable
         'password' => 'hashed',
         'discount' => 'array',
     ];
+
+    public function canAccessFilament(): bool
+    {
+        return true;
+    }
 
     /**
      * Company relationship
