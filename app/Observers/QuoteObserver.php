@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\CalculateProjectTotals;
 use App\Models\Document;
 use App\Models\Product;
 use App\Models\Project;
@@ -28,8 +29,13 @@ class QuoteObserver
             } else {
                 $currentProduct['type'] = "simulation";
             }
-            $currentProduct['status'] = false;
-            $newProduct = Product::create($currentProduct);
+            $newProduct = new Product();
+            $newProduct->type = $currentProduct['type'];
+            $newProduct->name = $currentProduct['name'];
+            $newProduct->overview = $currentProduct['overview'];
+            $newProduct->image = $currentProduct['image'];
+            $newProduct->video = $currentProduct['video'];
+            $newProduct->status = false;
             $newProduct->quote()->associate($quote);
             $newProduct->saveQuietly();
 
@@ -43,8 +49,12 @@ class QuoteObserver
                 } else {
                     $currentSolution['type'] = "simulation";
                 }
-                $currentSolution['status'] = false;
-                $newSolution = Solution::create($currentSolution);
+                $newSolution = new Solution();
+                $newSolution->type = $currentSolution['type'];
+                $newSolution->name = $currentSolution['name'];
+                $newSolution->overview = $currentSolution['overview'];
+                $newSolution->image = $currentSolution['image'];
+                $newSolution->status = false;
                 $newSolution->product()->associate($newProduct);
                 $newSolution->saveQuietly();
 
@@ -58,12 +68,26 @@ class QuoteObserver
                     } else {
                         $currentProject['type'] = "simulation";
                     }
-                    $currentProject['countries'] = Quote::find($quote->id)->countries;
-                    $currentProject['branches'] = Quote::find($quote->id)->branches;
-                    $currentProject['status'] = false;
-                    $newProject = Project::create($currentProject);
+                    $newProject = new Project();
+                    $newProject->type = $currentProject['type'];
+                    $newProject->name = $currentProject['name'];
+                    $newProject->price_category = $currentProject['price_category'];
+                    $newProject->price_tier = $currentProject['price_tier'];
+                    $newProject->countries = Quote::find($quote->id)->countries;
+                    $newProject->branches = Quote::find($quote->id)->branches;
+                    $newProject->online_hours = $currentProject['online_hours'];
+                    $newProject->offline_hours = $currentProject['offline_hours'];
+                    $newProject->online_cost = $currentProject['online_cost'];
+                    $newProject->offline_cost = $currentProject['offline_cost'];
+                    $newProject->standard_online_rate = Rate::all()->last()->standard_online_rate;
+                    $newProject->standard_offline_rate = Rate::all()->last()->standard_offline_rate;
+                    $newProject->premium_online_rate = Rate::all()->last()->premium_online_rate;
+                    $newProject->premium_offline_rate = Rate::all()->last()->premium_offline_rate;
+                    $newProject->status = false;
                     $newProject->solution()->associate($newSolution);
                     $newProject->saveQuietly();
+
+                    CalculateProjectTotals::dispatch($newProject);
                 });
             });
         });
