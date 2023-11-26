@@ -1,0 +1,532 @@
+Systems & Process Analysis,,,Product,392
+,Freight Forwarding (OI / OE / AE / AI),,Solution,115
+,,Project Management ,Project,10
+,,Present State - Process & Workflow,Project,0
+,,Review - Solutions Architect,Project,5
+,,Shipment/Consol Activities,Project,20
+,,Project Documentation,Project,15
+,,Future State - Process & Workflow (With Workshops),Project,0
+,,Design - Solutions Architect,Project,20
+,,Change Management Tasks (Workshops on Demand),Project,30
+,,Document - Solution Design (Options & Benefits),Project,15
+,Rate Management,,Solution,132
+,,Project Management ,Project,12
+,,Present State - Process & Systems,Project,0
+,,Review - Solutions Architect,Project,5
+,,Import - Buy Rate Uploads,Project,15
+,,Air Export - Buy Rate Uploads,Project,15
+,,Ocean Export - Buy Rate Uploads,Project,15
+,,Project Documentation,Project,10
+,,Future State - Process & Systems (With Workshops),Project,0
+,,Design - Solutions Architect,Project,5
+,,Import Rates - Automation,Project,15
+,,Air Export - Automations,Project,15
+,,Ocean Export - Automation,Project,15
+,,Document - Solution Design (Options & Benifits),Project,10
+,Finance,,Solution,115
+,,Project Management ,Project,10
+,,Present State - Process & Systems,Project,0
+,,Review - Solutions Architect,Project,5
+,,Chart of Accounts & Compliance,Project,20
+,,Project Documentation,Project,15
+,,Future State - Business Controls & Compliance (With Workshops),Project,0
+,,Design - Solutions Architect,Project,20
+,,Finance Automations (Workshops on Demand),Project,30
+,,Document - Solution Design (Options & Benefits),Project,15
+,Customs,,Solution,68
+,,Project Management ,Project,6
+,,Present State - Process & Systems,Project,0
+,,Review - Solutions Architect,Project,2
+,,Export Customs,Project,10
+,,Import Customs,Project,10
+,,Project Documentation,Project,15
+,,Future State - Process & Workflow,Project,0
+,,Design - Solutions Architect,Project,10
+,,Document - Solution Design,Project,15
+,Warehousing,,Solution,0
+,Registry Settings,,Solution,0
+,Transportation,,Solution,0
+Workshops,,,Product,0
+,Freight Forwarding,,Solution,0
+,,Project Management ,Project,0
+,,Carrier Messaging,Project,0
+,,Cargo Schedules & Automations,Project,0
+,,Port Messaging,Project,0
+,,Master Data Management,Project,0
+,,Document Managment,Project,0
+,,Job Management,Project,0
+,,Web Tracker,Project,0
+,,Transportation (Origin & Destination Services),Project,0
+,,"Demmurage, Detention & Storeage",Project,0
+,,Workflows & Notifications,Project,0
+,,Exception Reports & Reports,Project,0
+,,Digital Signature,Project,0
+,,PAVE Boards,Project,0
+,Rate Management,,Solution,0
+,,Project Management ,Project,0
+,,Origin & Destintation Charges,Project,0
+,,Rate Calculators,Project,0
+,,Auto Rating,Project,0
+,,Auto Costing,Project,0
+,,Wise Rates,Project,0
+,,Cargo Sphere,Project,0
+,,Cargo Guide,Project,0
+,Finance,,Solution,0
+,,Project Management ,Project,0
+,,GL & Charge Codes,Project,0
+,,Tax Rules,Project,0
+,,Credit Control,Project,0
+,,Vendor Payment Processing,Project,0
+,,Exchange Rates,Project,0
+,,E-Invoicing,Project,0
+,,Currency Revaluation,Project,0
+,,Profit Sharing,Project,0
+,,Multi Currency Setup,Project,0
+,,CASS Hot Files,Project,0
+,Customs,,Solution,0
+,,Export Customs,Project,0
+,,Import Customs,Project,0
+,,E-Manifest,Project,0
+,,Creation of Company,Project,0
+,,Creation of Branch,Project,0
+,,Creation of Department,Project,0
+,,Revenue Recognition,Project,0
+,,Allow Back Posting Sub Ledger Transaction,Project,0
+,,Period Reopen Level,Project,0
+,,Job Profit/Loss Reason Codes,Project,0
+,,Debtor / creditor groups,Project,0
+,,Tax Rules,Project,0
+,,Sailing Schedules Changed Notification,Project,0
+,,Client Rate Going To Expire Email Notification,Project,0
+,,GL Journals Approval Notify Group,Project,0
+,,Intercompany Transactions Import Notify Group,Project,0
+,,ob Posting Notification Group,Project,0
+,,Job Reopen Notify Group,Project,0
+,,Transaction Reverse Notify Group,Project,0
+CW One Setups & Configs,,,Product,80
+,Getting Started - My Account Overview,,Solution,2.5
+,,Overview,Project,0.5
+,,Installation of Client,Project,1
+,,Training resources,Project,0.5
+,,Certification Program,Project,0.5
+,Company Structure,,Solution,3.5
+,,Analysis - System & Controls,Project,2
+,,Creation of Company,Project,0.5
+,,Creation of Branch,Project,0.5
+,,Creation of Department,Project,0.5
+,Registry Setup,,Solution,8
+,,Analysis - System & Controls,Project,2
+,,Registry - Revenue Recognition,Project,1
+,,Registry - File Reference Numbers,Project,0.5
+,,Registry - Email Configuration,Project,0.5
+,,Registry - Printer Setup,Project,0.5
+,,Registry - Company Branding,Project,0.5
+,Staff Security Setup,,Solution,3.5
+,,Analysis - System & Controls,Project,2
+,,Creation of Staff,Project,0.5
+,,Creation of Groups,Project,0.5
+,,Attaching Rights to Groups,Project,0.5
+,Master Data Management,,Solution,28.5
+,,Project Management ,Project,2
+,,Analysis - System & Controls,Project,1
+,,Organization Creation Training,Project,2
+,,Organizations Transfer,Project,2
+,,"Global, Temporary & National Accounts",Project,2
+,,"Denied Party Screening, Related Parties, Controlling Customers",Project,2.5
+,,Merging Duplicates,Project,2
+,E doc Management,,Solution,2.5
+,,Analysis - Functional,Project,0.5
+,,Edoc code Review,Project,0.5
+,,Product DocPacks (4 Modes),Project,0.5
+,,Document Delivery,Project,0.5
+,,Mandatory Documents,Project,0.5
+,Dashboards,,Solution,2.5
+,,Analysis - Functional,Project,0.5
+,,Basic Color Coding,Project,1
+,,Company Templates & General Filters,Project,1
+,User Interface Personalization,,Solution,1
+,,Home Page User Interface,Project,0.5
+,,Customize Theme,Project,0.5
+,Customization,,Solution,30
+,,Job Ready for A/R & A/P Posting,Project,9
+,,Daily Task Report,Project,9
+,,Document Customization - HAWB based on POL,Project,2
+,,Report Customization - Shipment Profile Report in USD Currency,Project,10
+Freight Forwarding,,,Product,138
+,Implementation,,Solution,94
+,,Project Management ,Project,8
+,,Analysis - Functional,Project,4
+,,Registry Setup,Project,0.5
+,,Document Review (9 Docs),Project,1
+,,Notifications,Project,0.5
+,,NVOCC Implementation & Training,Project,80
+,Testing,,Solution,2
+,,Functional Testing (1 Scenario),Project,1
+,,UAT (1 Scenario),Project,1
+,Process Training,,Solution,21
+,,Project Management ,Project,2
+,,Ocean Imports,Project,3
+,,Ocean Exports,Project,3
+,,Air Exports,Project,3
+,,Air Imports,Project,3
+,,Global Sailing Schedule,Project,1
+,,Job Management,Project,1
+,,PO Management,Project,4
+,,Road Transport,Project,3
+,Automations,,Solution,29
+,,Project Management ,Project,3
+,,Analysis - Requirements,Project,3
+,,Air Carrier Messaging (upto 5 connections),Project,1.5
+,,Ocean Carrier Messaging (upto 5 connections),Project,1.5
+,,Web Tracker Utilization,Project,3
+,,Port Messaging,Project,8
+,,"Detention , Demurrage and storage",Project,3
+,,Rail Container Tracing (USA),Project,1
+,,E2E,Project,3
+,,Analysis - Requirements,Project,14
+,,Review of System (TST+PRD) Company Branch and Department-US Only,Project,2
+,,Review of Printers and Email Setup (TST+PRD) Company Branch and Department-US Only,Project,2
+,,Configuration of E2E- Connectivity Between A-Link and Santova US,Project,12
+,,E2E - UAT with Client on Test Database - a to z,Project,4
+,,Configuration of E-Adaptor for Integration Between A Link and Santova US *Only if E2E Fails (Will update Estimated hours only after Discovery Call/Gap Analysis),Project,0
+,,"Review of Documents with LOGO ( like Invoice , Pre-Alert, BOL, HAWB, DO etc.)- System Define Only",Project,2
+,,"Review Of Santova Process Flow ( SEA, AIR, ROAD , RAIL- Export and Import ) - Will update Estimated hours only after Discovery Call/Gap Analysis",Project,0
+,,"Finalization of SFL Design Process Flow ( SEA, AIR, ROAD , RAIL- Export and Import )- Only if its Approved by Santova - [Will update Estimated hours only after Discovery Call/Gap Analysis]",Project,0
+,,Basic Workflow Setup (TST+PRD),Project,4
+Advance Workflows,,,Product,278.5
+,Purchase order Management,,Solution,7.5
+,,Analysis - Functional,Project,1
+,,Milestones,Project,1
+,,Update Master Data,Project,0.5
+,,Notifications Templates,Project,1
+,,Task Creation (10 Tasks),Project,3
+,,Triggers (Upto 5),Project,1
+,Road Freight Automation,,Solution,8.5
+,,Analysis-Functional,Project,2
+,,Milestones & Custom Fields,Project,1
+,,Web Tracker Visibility,Project,0.5
+,,Task Creation (10 Tasks),Project,3
+,,Notifications Templates (1),Project,1
+,,Triggers (Upto 5),Project,1
+,Ocean Export Automation,,Solution,44.5
+,,Project Management ,Project,4
+,,Blue Print / Gap Analysis,Project,1
+,,Milestones & Custom Fields,Project,1
+,,Update Master Data,Project,0.5
+,,Notifications Templates,Project,1
+,,Web Tracker Visibility,Project,0.5
+,,Include Doc Pack,Project,0.5
+,,Task Creation (10 Tasks),Project,3
+,,Triggers (Upto 5),Project,1
+,,Client Specific Template (1 Customer),Project,1
+,,PAVE Board,Project,20
+,,HelpDesk Support (Valid for 15 Days),Project,1
+,Air Export Automation,,Solution,30.5
+,,Project Management ,Project,3
+,,Analysis-Functional,Project,1
+,,Milestones & Custom Fields,Project,1
+,,Update Master Data,Project,0.5
+,,Notifications Templates (1),Project,1
+,,Include Doc Pack,Project,0.5
+,,Web Tracker Visibility,Project,0.5
+,,Task Creation (10 Tasks),Project,3
+,,Triggers (Upto 5),Project,1
+,,Client Specific Template (1 Customer),Project,1
+,,PAVE Board,Project,20
+,,HelpDesk Support (Valid for 15 Days),Project,1
+,Imports Automation,,Solution,82
+,,Project Management ,Project,7
+,,Analysis -Functional,Project,1
+,,Milestones & Custom Fields,Project,1
+,,Exception Report,Project,0.5
+,,Notifications Templates (1),Project,1
+,,Task Creation (10 Tasks),Project,3
+,,Web Tracker Visibility,Project,0.5
+,,Triggers (Upto 5),Project,1
+,,Client Specific Template (1 Customer),Project,1
+,,PAVE Board,Project,20
+,,HelpDesk Support (Valid for 15 Days),Project,1
+,,Milestones Configuration with Triggers Setup - 15 Nos,Project,45
+,Customs Automations,,Solution,33
+,,Project Management ,Project,3
+,,Analysis -Functional,Project,1
+,,Milestones & Custom Fields,Project,1
+,,Notifications Templates (1),Project,1
+,,Exception Report,Project,0.5
+,,Web Tracker Visibility,Project,0.5
+,,Task Creation (10 Tasks),Project,3
+,,Triggers (Upto 5),Project,1
+,,Client Specific Template (1 Customer),Project,1
+,,PAVE Board,Project,20
+,,HelpDesk Support (15 days),Project,1
+,Global Container Tracking (Accuracy on Ocean Tracking),,Solution,9
+,,Analysis -Functional (Identify key Carriers),Project,1
+,,Master Data Review LCL Carriers,Project,0.5
+,,Master Data Review FCL Carriers,Project,0.5
+,,Exceptions (Feeder Vessels / Non Supported Carriers),Project,0.5
+,,Milestones ( Container Specific),Project,0.5
+,,Notifications Templates (1),Project,1
+,,Tasks for Operators (Monitoring),Project,2
+,,Dashboards (Containers),Project,0.5
+,,Triggers (Upto 5),Project,0.5
+,,HelpDesk Support (Valid for 30 Days),Project,2
+,Air Way Bill Automations (Accuracy on Air Tracking),,Solution,7
+,,Analysis -Functional (Identify key Carriers),Project,1
+,,Master Data Review AirLines,Project,0.5
+,,Exceptions (AirLines),Project,0.5
+,,Milestones (Air Cargo Specific),Project,0.5
+,,Notifications Templates (1),Project,1
+,,Tasks for Operators (Monitoring),Project,1.5
+,,Dashboards (AirLines),Project,0.5
+,,Triggers (Upto 5),Project,0.5
+,,HelpDesk Support (Valid for 30 days),Project,1
+,Phases - Data Integrity,,Solution,4
+,,Analysis -Functional,Project,2
+,,Registry Setup Consol,Project,0
+,,Registry Setup Shipment,Project,0
+,,Staff Security (1 Branch),Project,1
+,,Application of Trigger,Project,0
+,,HelpDesk Support (15 days),Project,1
+,Finance Automations,,Solution,2.5
+,,Notifications Templates (1),Project,1
+,,Organization Setup,Project,0.5
+,,Account Receivables,Project,0.5
+,,Account Payables,Project,0.5
+,,HelpDesk Support (15 days),Project,0
+,Sales & Marketing Workflow,,Solution,9.5
+,,Setup Milestone,Project,2
+,,Setup Triggers (upto 5),Project,2
+,,Notifications Templates (1),Project,0.5
+,,Task Creation (upto 10),Project,3
+,,HelpDesk Support (Valid for 30 days),Project,2
+,Liner & Agency Automations,,Solution,8.5
+,,Analysis - Requirements,Project,1
+,,Bill of Lading Milestones,Project,1
+,,Notifications Templates,Project,1
+,,Update Master Data,Project,0.5
+,,Web Tracker Visibility,Project,0.5
+,,Include Doc pack,Project,0.5
+,,Task Creation (10 Tasks),Project,3
+,,Triggers (Upto 5),Project,1
+,Milestones Setups,,Solution,46
+,,Project Management ,Project,4
+,,Order received from customer,Project,3
+,,Ops Arrange Forwarding,Project,3
+,,Pre Alert from Origin Agent,Project,3
+,,Split Pre Alert documents,Project,3
+,,Receive Clearing Instruction,Project,3
+,,Retrieve Arrival Notice,Project,3
+,,Cargo Dues Booking,Project,3
+,,Customs Clearance,Project,3
+,,Warehouse Leg,Project,3
+,,Transport Leg,Project,3
+,,Retrieve Invoice from Shipping Line,Project,3
+,,Send Release Pack to Shipping Lines. Navis Updated.,Project,3
+,,Create/Send Transport Documents to Transport Department,Project,3
+,,Exceptions,Project,3
+Finance,,,Product,112.5
+,Migration of Data,,Solution,6
+,,Analysis - System & Controls,Project,2
+,,Trial Balance,Project,1
+,,AR/ AP Opening Balance,Project,1
+,,Opening Cheques AR / AP,Project,1
+,Implementation,,Solution,27
+,,Project Managament,Project,2
+,,Analysis - Functional,Project,2
+,,Registry Setup,Project,1
+,,Global Charge Codes (Multi / Group Company),Project,2
+,,CW One Standard Charge codes,Project,2
+,,CW One GL Setup,Project,2
+,,Legacy Charge codes,Project,2
+,,Legacy GL,Project,2
+,,Document Review,Project,2
+,,Geo-Compliance,Project,4
+,,Creation of Tax Override Groups & Rules,Project,1
+,,Budget,Project,2
+,Country Taxation,,Solution,5
+,,TDS For India,Project,5
+,Training,,Solution,14
+,,Account Receivables,Project,3
+,,Account Payables,Project,3
+,,Cash Book,Project,3
+,,General Ledger,Project,3
+,,Job Costing / Management,Project,1
+,,Organization master/Credit control,Project,1
+,Automations,,Solution,68.5
+,,Project Management ,Project,6
+,,Analysis - Requirements,Project,1
+,,Global Credit Control,Project,3.5
+,,CASS Hot Files,Project,3
+,,Vendor Payments (1 Branch),Project,4
+,,Approvals / Validation Matrices,Project,5
+,,Currency Revaluation,Project,2
+,,Cash Flow Statement,Project,7
+,,Auto Reconcile,Project,2
+,,Profit Sharing (1 Partner),Project,3
+,,Multi Currency Setup,Project,12
+,,Discovery Session,Project,1
+,,Business Process Requirement,Project,1
+,,Design Process Flow,Project,0
+,,Design Sign Off From Business Process Team,Project,1
+,,CW1 Test System Setup / Configuration,Project,2
+,,Design Training Document,Project,0
+,,UAT Testing,Project,1
+,,Migration of Design Data From Test to Production System,Project,0
+,,Go-Live,Project,1
+Rate Management,,,Product,44
+,Implementation,,Solution,10
+,,Analysis - System & Controls,Project,2
+,,Registry Setup,Project,4
+,,Charge Code Mapping Cargo Sphere,Project,2
+,,Charge Code Mapping Cargo Guide,Project,2
+,Training,,Solution,13
+,,Cargo Sphere (1 Contract),Project,4
+,,Cargo Guide (1 Contract),Project,2
+,,Company Tariff,Project,1
+,,Costing,Project,1
+,,Client Rate,Project,1
+,,Quotation,Project,1
+,,One Off Quote,Project,1
+,,Rate Calculator,Project,2
+,Automations,,Solution,21
+,,Project Management ,Project,2
+,,Analysis - Requirements,Project,4
+,,Auto Rating / Costing (1 customer),Project,5
+,,Cargo Guide,Project,6
+WareHousing,,,Product,97.5
+,Transit WareHouse,,Solution,57.5
+,,Project Management ,Project,5
+,,Analysis - Functional,Project,15
+,,WareHouse Setup,Project,2
+,,Location Setup,Project,3
+,,RF Scanner Setup,Project,2
+,,Customers Setup (3 Customer Samples),Project,3
+,,Billing Setup (3 Customer Sample),Project,3
+,,Workflow Setup,Project,6
+,,Desktop Training,Project,5
+,,Mobile Device Training,Project,5
+,,Forwarding + Transit Warehouse Communications Training,Project,6.5
+,,Inventory Overview,Project,2
+,Production WareHouse,,Solution,49
+,,Project Management ,Project,4
+,,Analysis - Functional,Project,15
+,,WareHouse Setup,Project,2
+,,Customers Setup (3 Customer Samples),Project,3
+,,Location Setup (1 Type Warehouse),Project,3
+,,Area Setup,Project,3
+,,Product / SKU Training(Upto 1000 products / SKU),Project,2
+,,RF Scanner Setup (1 Unit),Project,2
+,,Basic Workflow Setup,Project,2
+,,Billing Setup (3 Customer Sample),Project,3
+,,WareHousing Desktop Training,Project,6
+,,RF Scanning Training (not included scanner procurement ),Project,2
+,,Inventory Migration - Customer Provided with CW Adjustments (upto 1000 products),Project,2
+Customs Clearance,,,Product,64
+,Port Messaging,,Solution,26
+,,Project Management ,Project,2
+,,AES - USA,Project,8
+,,Canada Customs eManifest,Project,8
+,,G7-Export,Project,8
+,Import Declaration,,Solution,26.5
+,,Project Management ,Project,2
+,,Analysis - Functional,Project,1
+,,Security Setup,Project,1
+,,Registry Setup (1 Customs Handling System),Project,2
+,,Organization Setup,Project,2
+,,Organization Proxy,Project,1
+,,Training for declarations and Various Customs Filling (1 Branch),Project,14.5
+,,LOI,Project,1
+,,Training For ISF (1 Branch),Project,2
+,Export Declaration,,Solution,10.5
+,,Analysis - Functional,Project,1
+,,Security Setup,Project,1
+,,Registry setup,Project,0.5
+,,LOI,Project,0.5
+,,Organization Setup,Project,1
+,,Organization Proxy Setup,Project,0.5
+,,Training (1 Branch),Project,6
+,GB Customs (Migrating),,Solution,5
+,,Analysis - Requirements,Project,1
+,,Through CDS Production / Test (trader dress rehearsal,Project,4
+,,Setup Connection EDI Messaging (Training and Production),Project,2
+,,Test system configuration,Project,0
+,,Testing in Test Enviornment For Only 'Sucessfully' response of Customs,Project,0
+,,Testing In Test Enviornment for 'Sucessfully with Acceptance' response of Customs*,Project,1
+,,Production - System Configuation,Project,0
+,,Production - For Only 'Sucessfully' response of Customs,Project,1
+,,Production - For 'Sucessfully with Acceptance' response of Customs*,Project,3
+,,Project Documentation (Configuration and Training Manual),Project,0
+Sales & Marketing,,,Product,11.5
+,Implementation,,Solution,2
+,,Analysis - Functional,Project,1
+,,Registry Setup,Project,1
+,Sales Modules Training,,Solution,8
+,,Inquiry Manager,Project,1
+,,Opportunity Manager,Project,1
+,,Client Intelligence,Project,1
+,,Communication Manager,Project,1
+,,Value Analysis,Project,1
+,,Commission Management,Project,3
+,Marketing Training,,Solution,1.5
+,,"Campaign Management, News & Announcements",Project,1.5
+Add On CW One Modules - Setups + KT,,,Product,35
+,Customer Service Tool,,Solution,4
+,,Analysis - System & Controls,Project,1
+,,Web URL,Project,2
+,,Customization,Project,1
+,Transportation (1 Department),,Solution,12
+,,Analysis - Functional,Project,2
+,,Auto Rating (1 Vendor),Project,5
+,,Registry Setup,Project,1
+,,Zones,Project,2
+,,Operational Activities,Project,2
+,Liner & Agency (1 Department),,Solution,19
+,,Analysis - Functional,Project,3
+,,Container Movements,Project,2
+,,Container Detention,Project,2
+,,Sundry Charges,Project,1
+,,Sailing Schedules,Project,2
+,,Booking & Bill of Lading,Project,2
+,,Document Customization (upto 5),Project,0
+,,Registry Setup,Project,0
+,,UAT & Practice Sessions,Project,5
+,,Reports Training,Project,2
+,,Setup,Project,1
+,,Training,Project,5
+,,Accounts Payables,Project,2
+,,Cash Book,Project,1
+,,Job Costing,Project,1
+,,General Ledger,Project,3
+,,Chart of Accounts,Project,0
+,,AR Payment,Project,0
+,,Job Revenue Journals,Project,0
+,,Matching of Transactions,Project,0
+,,Receivable Claims and Queries,Project,0
+,,Collection Calls,Project,0
+,,Credit Control Documents Approval,Project,0
+,,Credit Note Approval,Project,0
+,,Periodic Invoice,Project,0
+,,Bulk Periodic Invoice,Project,0
+,,Invoice Approval,Project,0
+,,AP Invoice,Project,0
+,,AP Credit Note,Project,0
+,,AP Journal,Project,0
+,,AP Contra,Project,0
+,,AP Transfer,Project,0
+,,AP Payment,Project,0
+,,AP Adjustment Note,Project,0
+,,Intercompany Transations,Project,0
+,,Purchase Order,Project,0
+,,Overhead Cost Apportionment,Project,0
+,,Direct Receipts,Project,0
+,,Direct Payments,Project,0
+,,Bank Transfer entries,Project,0
+,,Currency revaluation(Exchange entry),Project,0
+,,Direct Debit Batches,Project,0
+,,Deposit Batches,Project,0
+,,Bank Reconcillation,Project,0
+,,Journals,Project,0
+,,Journal Awaiting Approval,Project,0
+,,Period Management,Project,0
+,,Job Management,Project,0
+,,WIP & Accruals,Project,0
