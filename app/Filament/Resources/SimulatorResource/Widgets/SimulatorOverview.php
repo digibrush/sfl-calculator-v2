@@ -18,8 +18,7 @@ class SimulatorOverview extends BaseWidget
     protected function getCards(): array
     {
         return [
-            Card::make('Online Hours', $this->record->online_hours),
-            Card::make('Offline Hours', $this->record->offline_hours),
+            Card::make('Hours', $this->record->hours),
 //            Card::make('Online Cost', $this->record->online_cost),
 //            Card::make('Offline Cost', $this->record->offline_cost),
             Card::make('Total Cost', $this->record->total_cost),

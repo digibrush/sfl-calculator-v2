@@ -429,10 +429,10 @@
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                                 <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }} {{ $i }} (Total)</td>
                                                 <td width="20%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
-                                                    {{ ((float)$project->solution->online_hours + (float)$project->solution->offline_hours) }}
+                                                    {{ ((float)$project->solution->hours) }}
                                                 </td>
                                                 <td width="20%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
-                                                    {{ number_format(((float)$project->solution->online_cost + (float)$project->solution->offline_cost),2) }}
+                                                    {{ number_format(((float)$project->solution->cost),2) }}
                                                 </td>
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                             </tr>
@@ -464,10 +464,10 @@
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                             <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c">{{ $project->name }} {{ $i }}</td>
                                             <td width="20%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
-                                                {{ ((float)$project->total_online_hours + (float)$project->total_offline_hours) }}
+                                                {{ ((float)$project->total_hours) }}
                                             </td>
                                             <td width="20%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
-                                                {{ number_format(((float)$project->total_online_cost + (float)$project->total_offline_cost),2) }}
+                                                {{ number_format(((float)$project->total_cost),2) }}
                                             </td>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                         </tr>
@@ -525,10 +525,10 @@
                         {{ $product->projects }}
                     </td>
                     <td style="text-align: center; border-bottom: 1px solid #eef0f2;">
-                        {{ ((float)$product->online_hours + (float)$product->offline_hours) }}
+                        {{ ((float)$product->hours) }}
                     </td>
                     <td style="text-align: center; border-bottom: 1px solid #eef0f2; font-weight: 500; font-size: 18px">
-                        {{ number_format(((float)$product->online_cost + (float)$product->offline_cost),2) }}
+                        {{ number_format(((float)$product->cost),2) }}
                     </td>
                     <td width="5%">&nbsp;</td>
                 </tr>
@@ -543,10 +543,10 @@
                     {{ $quote->projects }}
                 </td>
                 <td style="text-align: center; background-color: #ddf1fe;">
-                    {{ ((float)$quote->online_hours + (float)$quote->offline_hours) }}
+                    {{ ((float)$quote->hours) }}
                 </td>
                 <td style="text-align: center; background-color: #ddf1fe;">
-                    {{ number_format(((float)$quote->online_cost + (float)$quote->offline_cost),2) }}
+                    {{ number_format(((float)$quote->cost),2) }}
                 </td>
                 <td width="10%">&nbsp;</td>
             </tr>

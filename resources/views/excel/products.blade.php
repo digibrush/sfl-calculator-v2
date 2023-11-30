@@ -7,10 +7,9 @@
         <th></th>
         <th>Type</th>
         <th>Order</th>
-        <th>Online Hours</th>
-        <th>Offline Hours</th>
-        <th>Online Cost</th>
-        <th>Offline Cost</th>
+        <th>Hours</th>
+        <th>Cost</th>
+        <th>Category</th>
     </tr>
     </thead>
     <tbody>
@@ -22,10 +21,9 @@
             <td></td>
             <td>Product</td>
             <td>{{ $product->order }}</td>
-            <td>{{ $product->online_hours }}</td>
-            <td>{{ $product->offline_hours }}</td>
-            <td>{{ $product->online_cost }}</td>
-            <td>{{ $product->offline_cost }}</td>
+            <td>{{ $product->hours }}</td>
+            <td>{{ $product->cost }}</td>
+            <td></td>
         </tr>
         @foreach($product->solutions()->get() as $solution)
             <tr>
@@ -35,10 +33,9 @@
                 <td></td>
                 <td>Solution</td>
                 <td>{{ $solution->order }}</td>
-                <td>{{ $solution->online_hours }}</td>
-                <td>{{ $solution->offline_hours }}</td>
-                <td>{{ $solution->online_cost }}</td>
-                <td>{{ $solution->offline_cost }}</td>
+                <td>{{ $solution->hours }}</td>
+                <td>{{ $solution->cost }}</td>
+                <td></td>
             </tr>
             @foreach($solution->projects()->get() as $project)
                 <tr>
@@ -48,10 +45,9 @@
                     <td>{{ $project->name }}</td>
                     <td>Project</td>
                     <td>{{ $project->order }}</td>
-                    <td>{{ $project->total_online_hours }}</td>
-                    <td>{{ $project->total_offline_hours }}</td>
-                    <td>{{ $project->total_online_cost }}</td>
-                    <td>{{ $project->total_offline_cost }}</td>
+                    <td>{{ $project->total_hours }}</td>
+                    <td>{{ $project->total_cost }}</td>
+                    <td>{{ $project->price_category }}</td>
                 </tr>
             @endforeach
         @endforeach

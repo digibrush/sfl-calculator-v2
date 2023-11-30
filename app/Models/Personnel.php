@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rate extends Model
+class Personnel extends Model
 {
     use HasFactory;
 
@@ -15,9 +15,17 @@ class Rate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'standard_online_rate',
-        'standard_offline_rate',
-        'premium_online_rate',
-        'premium_offline_rate',
+        'title',
+        'rate',
     ];
+
+    /**
+     * Project Relationship
+     *
+     * A personnel has many projects
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

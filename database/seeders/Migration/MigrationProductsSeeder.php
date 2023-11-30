@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Migration;
 
+use App\Models\Personnel;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Solution;
@@ -107,10 +108,11 @@ class MigrationProductsSeeder extends Seeder
                     if (strtolower($row[3]) == "project") {
                         $project = Project::create([
                             'name' => $row[2],
-                            'online_hours' => $row[4],
+                            'hours' => $row[4],
                             'status' => true,
                         ]);
                         $project->solution()->associate($solution);
+                        $project->personnel()->associate(Personnel::all()->first());
                         $project->save();
                     }
                 }

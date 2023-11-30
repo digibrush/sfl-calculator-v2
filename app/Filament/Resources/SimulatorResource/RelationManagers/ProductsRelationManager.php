@@ -40,13 +40,9 @@ class ProductsRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('online_hours')
+                Tables\Columns\TextColumn::make('hours')
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('offline_hours')
-                    ->toggleable(),
-                Tables\Columns\TextColumn::make('online_cost')
-                    ->toggleable(),
-                Tables\Columns\TextColumn::make('offline_cost')
+                Tables\Columns\TextColumn::make('cost')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('solutions')
                     ->toggleable(),

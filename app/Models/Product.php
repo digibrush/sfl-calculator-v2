@@ -24,10 +24,8 @@ class Product extends Model implements Sortable
         'overview',
         'image',
         'video',
-        'online_hours',
-        'offline_hours',
-        'online_cost',
-        'offline_cost',
+        'hours',
+        'cost',
         'solutions',
         'projects',
         'status',
@@ -39,10 +37,8 @@ class Product extends Model implements Sortable
      * @var array<string, string>
      */
     protected $casts = [
-        'online_hours' => 'float',
-        'offline_hours' => 'float',
-        'online_cost' => 'float',
-        'offline_cost' => 'float',
+        'hours' => 'float',
+        'cost' => 'float',
         'solutions' => 'integer',
         'projects' => 'integer',
         'status' => 'boolean',

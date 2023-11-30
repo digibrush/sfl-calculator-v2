@@ -15,18 +15,14 @@ class SolutionObserver
         if ($solution->product != null) {
             $product = Product::findOrFail($solution->product->id);
 
-            $total_online_hours = $product->solutions()->where('status', true)->sum('online_hours');
-            $total_offline_hours = $product->solutions()->where('status', true)->sum('offline_hours');
-            $total_online_cost = $product->solutions()->where('status', true)->sum('online_cost');
-            $total_offline_cost = $product->solutions()->where('status', true)->sum('offline_cost');
+            $total_hours = $product->solutions()->where('status', true)->sum('hours');
+            $total_cost = $product->solutions()->where('status', true)->sum('cost');
             $total_projects = $product->solutions()->where('status', true)->sum('projects');
             $total_solutions = $product->solutions()->where('status', true)->count();
 
             $product->update([
-                'online_hours' => $total_online_hours,
-                'offline_hours' => $total_offline_hours,
-                'online_cost' => $total_online_cost,
-                'offline_cost' => $total_offline_cost,
+                'hours' => $total_hours,
+                'cost' => $total_cost,
                 'projects' => $total_projects,
                 'solutions' => $total_solutions
             ]);
@@ -40,18 +36,14 @@ class SolutionObserver
     {
         $product = Product::findOrFail($solution->product->id);
 
-        $total_online_hours = $product->solutions()->where('status', true)->sum('online_hours');
-        $total_offline_hours = $product->solutions()->where('status', true)->sum('offline_hours');
-        $total_online_cost = $product->solutions()->where('status', true)->sum('online_cost');
-        $total_offline_cost = $product->solutions()->where('status', true)->sum('offline_cost');
+        $total_hours = $product->solutions()->where('status', true)->sum('hours');
+        $total_cost = $product->solutions()->where('status', true)->sum('cost');
         $total_projects = $product->solutions()->where('status', true)->sum('projects');
         $total_solutions = $product->solutions()->where('status', true)->count();
 
         $product->update([
-            'online_hours' => $total_online_hours,
-            'offline_hours' => $total_offline_hours,
-            'online_cost' => $total_online_cost,
-            'offline_cost' => $total_offline_cost,
+            'hours' => $total_hours,
+            'cost' => $total_cost,
             'projects' => $total_projects,
             'solutions' => $total_solutions
         ]);

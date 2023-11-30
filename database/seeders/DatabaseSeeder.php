@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\Development\DevelopmentCompaniesSeeder;
+use Database\Seeders\Development\DevelopmentPersonnelSeeder;
 use Database\Seeders\Development\DevelopmentProductsSeeder;
 use Database\Seeders\Development\DevelopmentQuotesSeeder;
 use Database\Seeders\Development\DevelopmentRegionSeeder;
@@ -27,17 +28,18 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 //        $this->call(RatesSeeder::class);
-//        $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(DevelopmentPersonnelSeeder::class);
 //        $this->call(DevelopmentProductsSeeder::class);
-//        $this->call(DevelopmentCompaniesSeeder::class);
-//        $this->call(DevelopmentSectorsSeeder::class);
-//        $this->call(DevelopmentUsersSeeder::class);
+        $this->call(DevelopmentCompaniesSeeder::class);
+        $this->call(DevelopmentSectorsSeeder::class);
+        $this->call(DevelopmentUsersSeeder::class);
 //        $this->call(DevelopmentQuotesSeeder::class);
 //        $this->call(DevelopmentRegionSeeder::class);
-//        $this->call(MigrationTermsSeeder::class);
-//        $this->call(MigrationRegionSeeder::class);
+        $this->call(MigrationTermsSeeder::class);
+        $this->call(MigrationRegionSeeder::class);
 //        $this->call(MigrationRatesSeeder::class);
         $this->call(MigrationProductsSeeder::class);
-//        $this->call(MigrationClientsSeeder::class);
+        $this->call(MigrationClientsSeeder::class);
     }
 }
