@@ -11,6 +11,20 @@ class DevelopmentPersonnelSeeder extends Seeder
      */
     public function run(): void
     {
-        $personnels =  \App\Models\Personnel::factory(5)->create();
+        $personnels =  \App\Models\Personnel::factory()->create([
+            'title' => 'PM'
+        ]);
+        $personnels =  \App\Models\Personnel::factory()->create([
+            'title' => 'SA'
+        ]);
+        $personnels =  \App\Models\Personnel::factory()->create([
+            'title' => 'FC'
+        ]);
+        $personnels =  \App\Models\Personnel::factory()->create([
+            'title' => 'FA'
+        ]);
+        $personnels =  \App\Models\Personnel::factory()->create([
+            'title' => 'BA'
+        ]);
     }
 }

@@ -79,7 +79,7 @@ class MigrationProductsSeeder extends Seeder
             }
         } else {
             $content = [];
-            if (($open = fopen(public_path() . "/data/20231125.csv", "r")) !== FALSE) {
+            if (($open = fopen(public_path() . "/data/20231206.csv", "r")) !== FALSE) {
                 while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
                     $content[] = $data;
                 }
@@ -112,8 +112,11 @@ class MigrationProductsSeeder extends Seeder
                             'status' => true,
                         ]);
                         $project->solution()->associate($solution);
-                        $project->personnel()->associate(Personnel::all()->first());
                         $project->save();
+                        if ($row[5] != "") {
+                            $project->personnel()->associate(Personnel::where('title',$row[5])->first());
+                            $project->save();
+                        }
                     }
                 }
             }
