@@ -67,14 +67,10 @@ class ProjectResource extends Resource
                             ->schema([
                                 Forms\Components\Grid::make(12)
                                     ->schema([
-                                        Forms\Components\TextInput::make('online_hours')
+                                        Forms\Components\TextInput::make('hours')
                                             ->default(0)
                                             ->numeric()
-                                            ->columnSpan(6),
-                                        Forms\Components\TextInput::make('offline_hours')
-                                            ->default(0)
-                                            ->numeric()
-                                            ->columnSpan(6),
+                                            ->columnSpan(12),
                                     ])
                                     ->columnSpan(12)
                             ])
@@ -91,14 +87,13 @@ class ProjectResource extends Resource
                                                 'country' => 'Per Country',
                                             ])
                                             ->columnSpan(6),
-                                        Forms\Components\Select::make('price_tier')
-                                            ->options([
-                                                'standard' => 'Standard',
-                                                'premium' => 'Premium',
-                                            ])
+                                        Forms\Components\Select::make('personnel_id')
+                                            ->label('Assigned Personnel')
+                                            ->relationship('personnel', 'title')
+                                            ->required()
                                             ->columnSpan(6),
                                     ])
-                                    ->columnSpan(12)
+                                    ->columnSpan(12),
                             ])
                             ->columnSpan(12),
                     ])
@@ -113,16 +108,11 @@ class ProjectResource extends Resource
                                     ->schema([
                                         Forms\Components\Grid::make(12)
                                             ->schema([
-                                                Forms\Components\TextInput::make('total_online_hours')
+                                                Forms\Components\TextInput::make('total_hours')
                                                     ->default(0)
                                                     ->disabled()
                                                     ->numeric()
-                                                    ->columnSpan(6),
-                                                Forms\Components\TextInput::make('total_offline_hours')
-                                                    ->default(0)
-                                                    ->disabled()
-                                                    ->numeric()
-                                                    ->columnSpan(6),
+                                                    ->columnSpan(12),
                                             ])
                                             ->columnSpan(12)
                                     ])
@@ -132,16 +122,11 @@ class ProjectResource extends Resource
                                     ->schema([
                                         Forms\Components\Grid::make(12)
                                             ->schema([
-                                                Forms\Components\TextInput::make('total_online_cost')
+                                                Forms\Components\TextInput::make('total_cost')
                                                     ->default(0)
                                                     ->disabled()
                                                     ->numeric()
-                                                    ->columnSpan(6),
-                                                Forms\Components\TextInput::make('total_offline_cost')
-                                                    ->default(0)
-                                                    ->disabled()
-                                                    ->numeric()
-                                                    ->columnSpan(6),
+                                                    ->columnSpan(12),
                                             ])
                                             ->columnSpan(12)
                                     ])
@@ -159,14 +144,10 @@ class ProjectResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('total_online_hours')
-                    ->label('Online Hours'),
-                Tables\Columns\TextColumn::make('total_offline_hours')
-                    ->label('Offline Hours'),
-                Tables\Columns\TextColumn::make('total_online_cost')
-                    ->label('Online Cost'),
-                Tables\Columns\TextColumn::make('total_offline_cost')
-                    ->label('Offline Cost'),
+                Tables\Columns\TextColumn::make('total_hours')
+                    ->label('Hours'),
+                Tables\Columns\TextColumn::make('total_cost')
+                    ->label('Cost'),
                 Tables\Columns\ToggleColumn::make('status'),
             ])
             ->filters([

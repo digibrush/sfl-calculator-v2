@@ -99,15 +99,6 @@ class RolesAndPermissionsSeeder extends Seeder
         $permission->assignRole($system_administrator);
         $permission = Permission::create(['name' => 'Delete Templates']);
         $permission->assignRole($system_administrator);
-        //rates
-        $permission = Permission::create(['name' => 'Access Rates']);
-        $permission->assignRole($system_administrator);
-        $permission = Permission::create(['name' => 'Create Rates']);
-        $permission->assignRole($system_administrator);
-        $permission = Permission::create(['name' => 'Edit Rates']);
-        $permission->assignRole($system_administrator);
-        $permission = Permission::create(['name' => 'Delete Rates']);
-        $permission->assignRole($system_administrator);
         //users
         $permission = Permission::create(['name' => 'Access Users']);
         $permission->assignRole($system_administrator);
@@ -155,6 +146,15 @@ class RolesAndPermissionsSeeder extends Seeder
         $permission = Permission::create(['name' => 'Edit Terms And Conditions']);
         $permission->assignRole($system_administrator);
         $permission = Permission::create(['name' => 'Delete Terms And Conditions']);
+        $permission->assignRole($system_administrator);
+        //personnel
+        $permission = Permission::create(['name' => 'Access Personnels']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Create Personnels']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Edit Personnels']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Delete Personnels']);
         $permission->assignRole($system_administrator);
     }
 }

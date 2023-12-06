@@ -117,32 +117,6 @@ class SimulatorResource extends Resource
                                     ->columnSpan(12)
                             ])
                             ->columnSpan(12),
-                        Forms\Components\Fieldset::make('rates')
-                            ->label('Rates')
-                            ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
-                            ->schema([
-                                Forms\Components\Grid::make(12)
-                                    ->schema([
-                                        Forms\Components\TextInput::make('standard_online_rate')
-                                            ->default(Rate::all()->last()->standard_online_rate)
-                                            ->numeric()
-                                            ->columnSpan(12),
-                                        Forms\Components\TextInput::make('standard_offline_rate')
-                                            ->default(Rate::all()->last()->standard_offline_rate)
-                                            ->numeric()
-                                            ->columnSpan(12),
-                                        Forms\Components\TextInput::make('premium_online_rate')
-                                            ->default(Rate::all()->last()->premium_online_rate)
-                                            ->numeric()
-                                            ->columnSpan(12),
-                                        Forms\Components\TextInput::make('premium_offline_rate')
-                                            ->default(Rate::all()->last()->premium_offline_rate)
-                                            ->numeric()
-                                            ->columnSpan(12),
-                                    ])
-                                    ->columnSpan(12)
-                            ])
-                            ->columnSpan(12),
                     ])
                     ->columnSpan(fn(Page $livewire): int => ($livewire instanceof CreateRecord) ? 12 : 5),
                 Forms\Components\Card::make()
@@ -175,12 +149,7 @@ class SimulatorResource extends Resource
                                     ->schema([
                                         Forms\Components\Grid::make(12)
                                             ->schema([
-                                                Forms\Components\TextInput::make('online_hours')
-                                                    ->default(0)
-                                                    ->numeric()
-                                                    ->disabled()
-                                                    ->columnSpan(12),
-                                                Forms\Components\TextInput::make('offline_hours')
+                                                Forms\Components\TextInput::make('hours')
                                                     ->default(0)
                                                     ->numeric()
                                                     ->disabled()
@@ -194,12 +163,7 @@ class SimulatorResource extends Resource
                                     ->schema([
                                         Forms\Components\Grid::make(12)
                                             ->schema([
-                                                Forms\Components\TextInput::make('online_cost')
-                                                    ->default(0)
-                                                    ->numeric()
-                                                    ->disabled()
-                                                    ->columnSpan(12),
-                                                Forms\Components\TextInput::make('offline_cost')
+                                                Forms\Components\TextInput::make('cost')
                                                     ->default(0)
                                                     ->numeric()
                                                     ->disabled()
@@ -234,8 +198,7 @@ class SimulatorResource extends Resource
                     ->label('Created Date')
                     ->sortable()
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('online_cost'),
-                Tables\Columns\TextColumn::make('offline_cost'),
+                Tables\Columns\TextColumn::make('cost'),
                 Tables\Columns\TextColumn::make('discount_amount'),
                 Tables\Columns\TextColumn::make('total_cost'),
             ])

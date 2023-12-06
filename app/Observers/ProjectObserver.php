@@ -16,63 +16,32 @@ class ProjectObserver
     {
         $project = Project::findOrFail($project->id);
 
-        $price_tier = $project->price_tier;
-        $online_slug = $price_tier."_online_rate";
-        $offline_slug = $price_tier."_offline_rate";
+        $hours = $project->hours;
 
-        $online_hours = $project->online_hours;
-        $offline_hours = $project->offline_hours;
+        $rate = (is_null($project->personnel)) ? 0.00 : $project->personnel->rate;
+        $cost = $hours * $rate;
 
-        if ($project->solution?->product?->quote == null) {
-            $standard_online_rate = Rate::all()->last()->standard_online_rate;
-            $standard_offline_rate = Rate::all()->last()->standard_offline_rate;
-            $premium_online_rate = Rate::all()->last()->premium_online_rate;
-            $premium_offline_rate = Rate::all()->last()->premium_offline_rate;
-
-            $online_cost = $online_hours * Rate::all()->last()->$online_slug;
-            $offline_cost = $offline_hours * Rate::all()->last()->$offline_slug;
-        } else {
-            $standard_online_rate = $project->solution->product->quote->standard_online_rate;
-            $standard_offline_rate = $project->solution->product->quote->standard_offline_rate;
-            $premium_online_rate = $project->solution->product->quote->premium_online_rate;
-            $premium_offline_rate = $project->solution->product->quote->premium_offline_rate;
-
-            $online_cost = $online_hours * $project->solution->product->quote->$online_slug;
-            $offline_cost = $offline_hours * $project->solution->product->quote->$offline_slug;
-        }
-
-        $project->online_hours = $online_hours;
-        $project->offline_hours = $offline_hours;
-        $project->online_cost = $online_cost;
-        $project->offline_cost = $offline_cost;
+        $project->hours = $hours;
+        $project->cost = $cost;
         $project->saveQuietly();
 
         $countries = $project->countries;
         $branches = $project->branches;
 
         if ($project->price_category == "country") {
-            $online_hours = $online_hours * $countries;
-            $offline_hours = $offline_hours * $countries;
-            $online_cost = $online_cost * $countries;
-            $offline_cost = $offline_cost * $countries;
+            $hours = $hours * $countries;
+            $cost = $cost * $countries;
         }
 
         if ($project->price_category == "branch") {
-            $online_hours = $online_hours * $branches;
-            $offline_hours = $offline_hours * $branches;
-            $online_cost = $online_cost * $branches;
-            $offline_cost = $offline_cost * $branches;
+            $hours = $hours * $branches;
+            $cost = $cost * $branches;
         }
 
         $project->update([
-            'total_online_hours' => $online_hours,
-            'total_offline_hours' => $offline_hours,
-            'total_online_cost' => $online_cost,
-            'total_offline_cost' => $offline_cost,
-            'standard_online_rate' => $standard_online_rate,
-            'standard_offline_rate' => $standard_offline_rate,
-            'premium_online_rate' => $premium_online_rate,
-            'premium_offline_rate' => $premium_offline_rate,
+            'total_hours' => $hours,
+            'total_cost' => $cost,
+            'rate' => $rate,
         ]);
     }
 
@@ -87,76 +56,41 @@ class ProjectObserver
             $countries = $project->countries;
             $branches = $project->branches;
 
-            $price_tier = $project->price_tier;
-            $online_slug = $price_tier."_online_rate";
-            $offline_slug = $price_tier."_offline_rate";
+            $hours = $project->hours;
 
-            $online_hours = $project->online_hours;
-            $offline_hours = $project->offline_hours;
+            $rate = (is_null($project->personnel)) ? 0.00 : $project->personnel->rate;
+            $cost = $hours * $rate;
 
-            if ($project->solution->product->quote == null) {
-                $standard_online_rate = Rate::all()->last()->standard_online_rate;
-                $standard_offline_rate = Rate::all()->last()->standard_offline_rate;
-                $premium_online_rate = Rate::all()->last()->premium_online_rate;
-                $premium_offline_rate = Rate::all()->last()->premium_offline_rate;
-
-                $online_cost = $online_hours * Rate::all()->last()->$online_slug;
-                $offline_cost = $offline_hours * Rate::all()->last()->$offline_slug;
-            } else {
-                $standard_online_rate = $project->solution->product->quote->standard_online_rate;
-                $standard_offline_rate = $project->solution->product->quote->standard_offline_rate;
-                $premium_online_rate = $project->solution->product->quote->premium_online_rate;
-                $premium_offline_rate = $project->solution->product->quote->premium_offline_rate;
-
-                $online_cost = $online_hours * $project->solution->product->quote->$online_slug;
-                $offline_cost = $offline_hours * $project->solution->product->quote->$offline_slug;
-            }
-
-            $project->online_hours = $online_hours;
-            $project->offline_hours = $offline_hours;
-            $project->online_cost = $online_cost;
-            $project->offline_cost = $offline_cost;
+            $project->hours = $hours;
+            $project->cost = $cost;
             $project->saveQuietly();
 
             if ($project->price_category == "country") {
-                $online_hours = $online_hours * $countries;
-                $offline_hours = $offline_hours * $countries;
-                $online_cost = $online_cost * $countries;
-                $offline_cost = $offline_cost * $countries;
+                $hours = $hours * $countries;
+                $cost = $cost * $countries;
             }
 
             if ($project->price_category == "branch") {
-                $online_hours = $online_hours * $branches;
-                $offline_hours = $offline_hours * $branches;
-                $online_cost = $online_cost * $branches;
-                $offline_cost = $offline_cost * $branches;
+                $hours = $hours * $branches;
+                $cost = $cost * $branches;
             }
 
-            $project->total_online_hours = $online_hours;
-            $project->total_offline_hours = $offline_hours;
-            $project->total_online_cost = $online_cost;
-            $project->total_offline_cost = $offline_cost;
-            $project->standard_online_rate = $standard_online_rate;
-            $project->standard_offline_rate = $standard_offline_rate;
-            $project->premium_online_rate = $premium_online_rate;
-            $project->premium_offline_rate = $premium_offline_rate;
+            $project->total_hours = $hours;
+            $project->total_cost = $cost;
+            $project->rate = $rate;
             $project->saveQuietly();
         }
 
         if ($project->solution != null) {
             $solution = Solution::findOrFail($project->solution->id);
 
-            $total_online_hours = $solution->projects()->where('status', true)->sum('total_online_hours');
-            $total_offline_hours = $solution->projects()->where('status', true)->sum('total_offline_hours');
-            $total_online_cost = $solution->projects()->where('status', true)->sum('total_online_cost');
-            $total_offline_cost = $solution->projects()->where('status', true)->sum('total_offline_cost');
+            $total_hours = $solution->projects()->where('status', true)->sum('total_hours');
+            $total_cost = $solution->projects()->where('status', true)->sum('total_cost');
             $total_projects = $solution->projects()->where('status', true)->count();
 
             $solution->update([
-                'online_hours' => $total_online_hours,
-                'offline_hours' => $total_offline_hours,
-                'online_cost' => $total_online_cost,
-                'offline_cost' => $total_offline_cost,
+                'hours' => $total_hours,
+                'cost' => $total_cost,
                 'projects' => $total_projects
             ]);
         }

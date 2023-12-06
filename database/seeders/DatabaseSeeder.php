@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\Development\DevelopmentCompaniesSeeder;
+use Database\Seeders\Development\DevelopmentPersonnelSeeder;
 use Database\Seeders\Development\DevelopmentProductsSeeder;
 use Database\Seeders\Development\DevelopmentQuotesSeeder;
 use Database\Seeders\Development\DevelopmentRegionSeeder;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
     {
 //        $this->call(RatesSeeder::class);
 //        $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(DevelopmentPersonnelSeeder::class);
 //        $this->call(DevelopmentProductsSeeder::class);
 //        $this->call(DevelopmentCompaniesSeeder::class);
 //        $this->call(DevelopmentSectorsSeeder::class);

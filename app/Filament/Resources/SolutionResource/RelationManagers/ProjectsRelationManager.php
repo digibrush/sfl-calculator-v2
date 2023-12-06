@@ -74,29 +74,24 @@ class ProjectsRelationManager extends RelationManager
                                                 'country' => 'Per Country',
                                             ])
                                             ->columnSpan(6),
-                                        Forms\Components\Select::make('price_tier')
-                                            ->options([
-                                                'standard' => 'Standard',
-                                                'premium' => 'Premium',
-                                            ])
+                                        Forms\Components\Select::make('personnel_id')
+                                            ->label('Assigned Personnel')
+                                            ->relationship('personnel', 'title')
+                                            ->required()
                                             ->columnSpan(6),
                                     ])
                                     ->columnSpan(12)
                             ])
                             ->columnSpan(12),
-                        Forms\Components\Fieldset::make('summary')
-                            ->label('Summary')
+                        Forms\Components\Fieldset::make('costing')
+                            ->label('Costing')
                             ->schema([
                                 Forms\Components\Grid::make(12)
                                     ->schema([
-                                        Forms\Components\TextInput::make('online_hours')
+                                        Forms\Components\TextInput::make('hours')
                                             ->required()
                                             ->numeric()
-                                            ->columnSpan(6),
-                                        Forms\Components\TextInput::make('offline_hours')
-                                            ->required()
-                                            ->numeric()
-                                            ->columnSpan(6),
+                                            ->columnSpan(12),
                                     ])
                                     ->columnSpan(12)
                             ])
@@ -124,24 +119,12 @@ class ProjectsRelationManager extends RelationManager
                         'warning' => 'branch',
                         'success' => 'country',
                     ]),
-                Tables\Columns\BadgeColumn::make('price_tier')
-                    ->enum([
-                        'standard' => 'Standard',
-                        'premium' => 'Premium',
-                    ])
-                    ->colors([
-                        'primary',
-                        'secondary' => 'standard',
-                        'success' => 'premium',
-                    ]),
-                Tables\Columns\TextColumn::make('total_online_hours')
-                    ->label('Online Hours'),
-                Tables\Columns\TextColumn::make('total_offline_hours')
-                    ->label('Offline Hours'),
-                Tables\Columns\TextColumn::make('total_online_cost')
-                    ->label('Online Cost'),
-                Tables\Columns\TextColumn::make('total_offline_cost')
-                    ->label('Offline Cost'),
+                Tables\Columns\TextColumn::make('personnel.title')
+                    ->label('Assignee'),
+                Tables\Columns\TextColumn::make('total_hours')
+                    ->label('Hours'),
+                Tables\Columns\TextColumn::make('total_cost')
+                    ->label('Cost'),
                 Tables\Columns\ToggleColumn::make('status'),
             ])
             ->reorderable('order')

@@ -118,16 +118,11 @@ class ProductResource extends Resource
                                     ->schema([
                                         Forms\Components\Grid::make(12)
                                             ->schema([
-                                                Forms\Components\TextInput::make('online_hours')
+                                                Forms\Components\TextInput::make('hours')
                                                     ->default(0)
                                                     ->numeric()
                                                     ->disabled()
-                                                    ->columnSpan(6),
-                                                Forms\Components\TextInput::make('offline_hours')
-                                                    ->default(0)
-                                                    ->numeric()
-                                                    ->disabled()
-                                                    ->columnSpan(6),
+                                                    ->columnSpan(12),
                                             ])
                                             ->columnSpan(12)
                                     ])
@@ -137,16 +132,11 @@ class ProductResource extends Resource
                                     ->schema([
                                         Forms\Components\Grid::make(12)
                                             ->schema([
-                                                Forms\Components\TextInput::make('online_cost')
+                                                Forms\Components\TextInput::make('cost')
                                                     ->default(0)
                                                     ->numeric()
                                                     ->disabled()
-                                                    ->columnSpan(6),
-                                                Forms\Components\TextInput::make('offline_cost')
-                                                    ->default(0)
-                                                    ->numeric()
-                                                    ->disabled()
-                                                    ->columnSpan(6),
+                                                    ->columnSpan(12),
                                             ])
                                             ->columnSpan(12)
                                     ])
@@ -164,10 +154,8 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('online_hours'),
-                Tables\Columns\TextColumn::make('offline_hours'),
-                Tables\Columns\TextColumn::make('online_cost'),
-                Tables\Columns\TextColumn::make('offline_cost'),
+                Tables\Columns\TextColumn::make('hours'),
+                Tables\Columns\TextColumn::make('cost'),
                 Tables\Columns\TextColumn::make('solutions'),
                 Tables\Columns\TextColumn::make('projects'),
                 Tables\Columns\ToggleColumn::make('status'),

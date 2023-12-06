@@ -156,17 +156,6 @@ class RoleResource extends Resource
                                                     ->columnSpan(12),
                                             ])
                                             ->columnSpan(4),
-                                        Forms\Components\Fieldset::make('rates')
-                                            ->label('Rates')
-                                            ->schema([
-                                                Forms\Components\CheckboxList::make('permissions')
-                                                    ->label('')
-                                                    ->bulkToggleable(true)
-                                                    ->required()
-                                                    ->relationship('permissions','name', fn (Builder $query) => $query->where('name','LIKE','%Rates')->orderBy('id'))
-                                                    ->columnSpan(12),
-                                            ])
-                                            ->columnSpan(4),
                                         Forms\Components\Fieldset::make('users')
                                             ->label('Users')
                                             ->schema([
@@ -208,6 +197,17 @@ class RoleResource extends Resource
                                                     ->bulkToggleable(true)
                                                     ->required()
                                                     ->relationship('permissions','name', fn (Builder $query) => $query->where('name','LIKE','%Roles')->orderBy('id'))
+                                                    ->columnSpan(12),
+                                            ])
+                                            ->columnSpan(4),
+                                        Forms\Components\Fieldset::make('personnels')
+                                            ->label('Personnels')
+                                            ->schema([
+                                                Forms\Components\CheckboxList::make('permissions')
+                                                    ->label('')
+                                                    ->bulkToggleable(true)
+                                                    ->required()
+                                                    ->relationship('permissions','name', fn (Builder $query) => $query->where('name','LIKE','%Personnels')->orderBy('id'))
                                                     ->columnSpan(12),
                                             ])
                                             ->columnSpan(4),

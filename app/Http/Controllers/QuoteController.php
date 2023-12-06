@@ -23,12 +23,10 @@ class QuoteController extends Controller
         $new_quote->title = null;
         $new_quote->countries = $quote->countries;
         $new_quote->branches = $quote->branches;
-        $new_quote->online_hours = $quote->online_hours;
-        $new_quote->offline_hours = $quote->offline_hours;
+        $new_quote->hours = $quote->hours;
         $new_quote->solutions = $quote->solutions;
         $new_quote->projects = $quote->projects;
-        $new_quote->online_cost = $quote->online_cost;
-        $new_quote->offline_cost = $quote->offline_cost;
+        $new_quote->cost = $quote->cost;
         $new_quote->discount = $quote->discount;
         $new_quote->discount_note = $quote->discount_note;
         $new_quote->discount_amount = $quote->discount_amount;
