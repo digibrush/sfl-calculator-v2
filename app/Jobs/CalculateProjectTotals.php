@@ -54,5 +54,7 @@ class CalculateProjectTotals implements ShouldQueue
         $project->total_hours = $hours;
         $project->total_cost = $cost;
         $project->saveQuietly();
+
+        CalculateSolutionTotals::dispatch($project->solution);
     }
 }
