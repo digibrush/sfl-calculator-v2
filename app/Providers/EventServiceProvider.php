@@ -4,12 +4,14 @@ namespace App\Providers;
 
 use App\Models\Document;
 use App\Models\Email;
+use App\Models\Personnel;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Quote;
 use App\Models\Solution;
 use App\Observers\DocumentObserver;
 use App\Observers\EmailObserver;
+use App\Observers\PersonnelObserver;
 use App\Observers\ProductObserver;
 use App\Observers\ProjectObserver;
 use App\Observers\QuoteObserver;
@@ -44,6 +46,7 @@ class EventServiceProvider extends ServiceProvider
         Product::class => [ProductObserver::class],
         Document::class => [DocumentObserver::class],
         Email::class => [EmailObserver::class],
+        Personnel::class => [PersonnelObserver::class],
     ];
 
     /**
