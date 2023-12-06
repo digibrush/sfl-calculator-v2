@@ -22,10 +22,8 @@ class Solution extends Model implements Sortable
         'name',
         'overview',
         'image',
-        'online_hours',
-        'offline_hours',
-        'online_cost',
-        'offline_cost',
+        'hours',
+        'cost',
         'projects',
         'status',
     ];
@@ -36,10 +34,8 @@ class Solution extends Model implements Sortable
      * @var array<string, string>
      */
     protected $casts = [
-        'online_hours' => 'float',
-        'offline_hours' => 'float',
-        'online_cost' => 'float',
-        'offline_cost' => 'float',
+        'hours' => 'float',
+        'cost' => 'float',
         'projects' => 'integer',
         'status' => 'boolean',
     ];

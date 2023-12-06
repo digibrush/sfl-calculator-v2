@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Migration;
 
+use App\Models\Personnel;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Solution;
@@ -78,7 +79,7 @@ class MigrationProductsSeeder extends Seeder
             }
         } else {
             $content = [];
-            if (($open = fopen(public_path() . "/data/20231125.csv", "r")) !== FALSE) {
+            if (($open = fopen(public_path() . "/data/20231206.csv", "r")) !== FALSE) {
                 while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
                     $content[] = $data;
                 }
@@ -107,11 +108,15 @@ class MigrationProductsSeeder extends Seeder
                     if (strtolower($row[3]) == "project") {
                         $project = Project::create([
                             'name' => $row[2],
-                            'online_hours' => $row[4],
+                            'hours' => $row[4],
                             'status' => true,
                         ]);
                         $project->solution()->associate($solution);
                         $project->save();
+                        if ($row[5] != "") {
+                            $project->personnel()->associate(Personnel::where('title',$row[5])->first());
+                            $project->save();
+                        }
                     }
                 }
             }

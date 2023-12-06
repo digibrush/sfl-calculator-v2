@@ -23,22 +23,18 @@ class ProductObserver
         if ($product->type == 'quote' || $product->type == 'simulation' || $product->type == 'template') {
             $quote = $product->quote;
 
-            $total_online_hours = $quote->products()->where('status', true)->sum('online_hours');
-            $total_offline_hours = $quote->products()->where('status', true)->sum('offline_hours');
+            $total_hours = $quote->products()->where('status', true)->sum('hours');
 
-            $total_online_cost = $quote->products()->where('status', true)->sum('online_cost');
-            $total_offline_cost = $quote->products()->where('status', true)->sum('offline_cost');
+            $total_cost = $quote->products()->where('status', true)->sum('cost');
 
             $total_solutions = $quote->products()->where('status', true)->sum('solutions');
             $total_projects = $quote->products()->where('status', true)->sum('projects');
 
             $quote->update([
-                'online_hours' => $total_online_hours,
-                'offline_hours' => $total_offline_hours,
+                'hours' => $total_hours,
                 'solutions' => $total_solutions,
                 'projects' => $total_projects,
-                'online_cost' => $total_online_cost,
-                'offline_cost' => $total_offline_cost,
+                'cost' => $total_cost,
             ]);
         }
     }

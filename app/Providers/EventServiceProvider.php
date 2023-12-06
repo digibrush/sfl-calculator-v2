@@ -7,14 +7,12 @@ use App\Models\Email;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Quote;
-use App\Models\Rate;
 use App\Models\Solution;
 use App\Observers\DocumentObserver;
 use App\Observers\EmailObserver;
 use App\Observers\ProductObserver;
 use App\Observers\ProjectObserver;
 use App\Observers\QuoteObserver;
-use App\Observers\RateObserver;
 use App\Observers\SolutionObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -44,7 +42,6 @@ class EventServiceProvider extends ServiceProvider
         Solution::class => [SolutionObserver::class],
         Quote::class => [QuoteObserver::class],
         Product::class => [ProductObserver::class],
-        Rate::class => [RateObserver::class],
         Document::class => [DocumentObserver::class],
         Email::class => [EmailObserver::class],
     ];

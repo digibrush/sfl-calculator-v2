@@ -11,16 +11,10 @@
                         Type
                     </th>
                     <th scope="col" class="px-6 py-3" style="width: 8%;">
-                        Online Hours
+                        Hours
                     </th>
                     <th scope="col" class="px-6 py-3" style="width: 8%;">
-                        Offline Hours
-                    </th>
-                    <th scope="col" class="px-6 py-3" style="width: 8%;">
-                        Online Cost
-                    </th>
-                    <th scope="col" class="px-6 py-3" style="width: 8%;">
-                        Offline Cost
+                        Cost
                     </th>
                     <th colspan="2" scope="col" class="px-6 py-3 text-end" style="width: 15%;">
                         Action
@@ -41,16 +35,10 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $product->online_hours }}
+                            {{ $product->hours }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $product->offline_hours }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ number_format($product->online_cost, 2) }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ number_format($product->offline_cost, 2) }}
+                            {{ number_format($product->cost, 2) }}
                         </td>
                         <td class="px-6 py-4">
                             @if($product->status)
@@ -92,16 +80,10 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $solution->online_hours }}
+                                {{ $solution->hours }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $solution->offline_hours }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ number_format($solution->online_cost, 2) }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ number_format($solution->offline_cost, 2) }}
+                                {{ number_format($solution->cost, 2) }}
                             </td>
                             <td class="px-6 py-4">
                                 @if($solution->status)
@@ -142,16 +124,10 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $project->total_online_hours }}
+                                    {{ $project->total_hours }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $project->total_offline_hours }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ number_format($project->total_online_cost, 2) }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ number_format($project->total_offline_cost, 2) }}
+                                    {{ number_format($project->total_cost, 2) }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @if($project->status)

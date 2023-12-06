@@ -22,20 +22,14 @@ class Project extends Model implements Sortable
         'name',
         'price_category',
         'price_tier',
+        'personnel_id',
         'countries',
         'branches',
-        'online_hours',
-        'offline_hours',
-        'online_cost',
-        'offline_cost',
-        'total_online_hours',
-        'total_offline_hours',
-        'total_online_cost',
-        'total_offline_cost',
-        'standard_online_rate',
-        'standard_offline_rate',
-        'premium_online_rate',
-        'premium_offline_rate',
+        'hours',
+        'cost',
+        'total_hours',
+        'total_cost',
+        'rate',
         'status',
     ];
 
@@ -47,18 +41,11 @@ class Project extends Model implements Sortable
     protected $casts = [
         'countries' => 'integer',
         'branches' => 'integer',
-        'online_hours' => 'float',
-        'offline_hours' => 'float',
-        'online_cost' => 'float',
-        'offline_cost' => 'float',
-        'total_online_hours' => 'float',
-        'total_offline_hours' => 'float',
-        'total_online_cost' => 'float',
-        'total_offline_cost' => 'float',
-        'standard_online_rate' => 'float',
-        'standard_offline_rate' => 'float',
-        'premium_online_rate' => 'float',
-        'premium_offline_rate' => 'float',
+        'hours' => 'float',
+        'cost' => 'float',
+        'total_hours' => 'float',
+        'total_cost' => 'float',
+        'rate' => 'float',
         'status' => 'boolean',
     ];
 
@@ -75,5 +62,15 @@ class Project extends Model implements Sortable
     public function solution()
     {
         return $this->belongsTo(Solution::class);
+    }
+
+    /**
+     * Personnel relationship
+     *
+     * A project belongs to a personnel
+     */
+    public function personnel()
+    {
+        return $this->belongsTo(Personnel::class);
     }
 }
