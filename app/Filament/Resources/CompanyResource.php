@@ -146,10 +146,10 @@ class CompanyResource extends Resource
                     ->label('Sector'),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('city')
-                    ->options(fn (Company $resource): array => $resource->pluck('city', 'city')->toArray()),
-                Tables\Filters\SelectFilter::make('country')
-                    ->options(fn (Company $resource): array => $resource->pluck('country', 'country')->toArray()),
+//                Tables\Filters\SelectFilter::make('city')
+//                    ->options(fn (Company $resource): array => $resource->pluck('city', 'city')->toArray()),
+//                Tables\Filters\SelectFilter::make('country')
+//                    ->options(fn (Company $resource): array => $resource->pluck('country', 'country')->toArray()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
