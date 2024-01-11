@@ -370,7 +370,7 @@
                 @endphp
                 <div class="page-break"></div>
                 <div class="slide-header">
-                    <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed Breakdown - {{ $product->name }} {{ $i }}</h1>
+                    <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed Breakdown - {{ $product->name }}</h1>
                 </div>
                 <div style="padding: 0; margin: 0;">
                     <table  width="100%" style="color: #153147" border="0">
@@ -396,7 +396,7 @@
                     @endphp
                     <div class="page-break"></div>
                     <div class="slide-header">
-                        <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed Breakdown - {{ $product->name }} {{ $i }}</h1>
+                        <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed Breakdown - {{ $product->name }}</h1>
                     </div>
                     <div style="padding: 0; margin: 0;">
                         <table  width="100%" style="color: #153147" border="0">
@@ -427,7 +427,7 @@
                                             <tbody style="padding-top: 20px;">
                                             <tr>
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                                <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }} {{ $i }} (Total)</td>
+                                                <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }} (Total)</td>
                                                 <td width="20%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
                                                     {{ ((float)$project->solution->hours) }}
                                                 </td>
@@ -462,7 +462,7 @@
                                         <tbody style="padding-top: 20px;">
                                         <tr>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                            <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c">{{ $project->name }} {{ $i }}</td>
+                                            <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c">{{ $project->name }}</td>
                                             <td width="20%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
                                                 {{ ((float)$project->total_hours) }}
                                             </td>
