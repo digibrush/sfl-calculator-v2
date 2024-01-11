@@ -76,12 +76,14 @@ class CompanyResource extends Resource
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('city')
+                                    		->required()
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('state')
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('country')
+                                    		->required()
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                     ])
