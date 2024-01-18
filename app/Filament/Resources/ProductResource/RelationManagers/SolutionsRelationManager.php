@@ -25,15 +25,15 @@ class SolutionsRelationManager extends RelationManager
             ?
             ($record->product->quote->type == "standard")
                 ?
-                url('/admin/solutions/'.$record->id.'/edit?type=quote')
+                url('/admin/solutions/'.$record->id.'/edit?type=quote&activeRelationManager=0')
                 :
                 (($record->product->quote->type == "template")
                     ?
-                    url('/admin/solutions/'.$record->id.'/edit?type=template')
+                    url('/admin/solutions/'.$record->id.'/edit?type=template&activeRelationManager=0')
                     :
-                    url('/admin/solutions/'.$record->id.'/edit?type=simulation'))
+                    url('/admin/solutions/'.$record->id.'/edit?type=simulation&activeRelationManager=0'))
             :
-            url('/admin/solutions/'.$record->id.'/edit');
+            url('/admin/solutions/'.$record->id.'/edit?activeRelationManager=0');
     }
 
     protected function getTableQuery(): Builder
@@ -122,22 +122,22 @@ class SolutionsRelationManager extends RelationManager
                 Tables\Actions\Action::make('edit-product-solution')
                     ->label('Edit')
                     ->hidden(fn (RelationManager $livewire): bool => ($livewire->ownerRecord->quote != null) ? true : false)
-                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit'))
+                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\Action::make('edit-quote-solution')
                     ->label('Edit')
                     ->hidden(fn (RelationManager $livewire): bool => ($livewire->ownerRecord->quote != null && $livewire->ownerRecord->quote->type == "standard") ? false : true)
-                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=quote'))
+                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=quote&activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\Action::make('edit-simulator-solution')
                     ->label('Edit')
                     ->hidden(fn (RelationManager $livewire): bool => ($livewire->ownerRecord->quote != null && $livewire->ownerRecord->quote->type == "simulation") ? false : true)
-                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=simulation'))
+                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=simulation&activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\Action::make('edit-template-solution')
                     ->label('Edit')
                     ->hidden(fn (RelationManager $livewire): bool => ($livewire->ownerRecord->quote != null && $livewire->ownerRecord->quote->type == "template") ? false : true)
-                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=template'))
+                    ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=template&activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\DeleteAction::make()
                     ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?activeRelationManager=0'),

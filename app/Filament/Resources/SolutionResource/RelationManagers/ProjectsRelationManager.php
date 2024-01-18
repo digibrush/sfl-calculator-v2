@@ -34,7 +34,7 @@ class ProjectsRelationManager extends RelationManager
                         :
                         url('/admin/projects/'.$record->id.'/edit?type=simulation'))
             :
-                url('/admin/projects/'.$record->id.'/edit');
+                url('/admin/projects/'.$record->id.'/edit?activeRelationManager=0');
     }
 
     protected function getTableQuery(): Builder
