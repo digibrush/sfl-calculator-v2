@@ -57,4 +57,14 @@ class EditProject extends EditRecord
         }
         return url('/admin/projects/'.$this->record->id.'/edit');
     }
+
+    protected function getBreadcrumbs(): array
+    {
+        return [
+            '/admin/products' => 'Products',
+            '/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => $this->record->solution->product->name,
+            '/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => $this->record->solution->name,
+            '/admin/projects/'.$this->record->id.'/edit' => $this->record->name,
+        ];
+    }
 }

@@ -54,4 +54,12 @@ class EditProduct extends EditRecord
     {
         return 'Product';
     }
+
+    protected function getBreadcrumbs(): array
+    {
+        return [
+            '/admin/products' => 'Products',
+            '/admin/products/'.$this->record->id.'/edit' => $this->record->name,
+        ];
+    }
 }

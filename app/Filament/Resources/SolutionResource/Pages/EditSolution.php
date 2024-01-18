@@ -53,4 +53,13 @@ class EditSolution extends EditRecord
     {
         return 'Solution';
     }
+
+    protected function getBreadcrumbs(): array
+    {
+        return [
+            '/admin/products' => 'Products',
+            '/admin/products/'.$this->record->product->id.'/edit?activeRelationManager=0' => $this->record->product->name,
+            '/admin/solutions/'.$this->record->id.'/edit' => $this->record->name,
+        ];
+    }
 }
