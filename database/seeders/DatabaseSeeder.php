@@ -18,6 +18,7 @@ use Database\Seeders\Migration\MigrationQuoteSeeder;
 use Database\Seeders\Migration\MigrationRatesSeeder;
 use Database\Seeders\Migration\MigrationRegionSeeder;
 use Database\Seeders\Migration\MigrationTermsSeeder;
+use Database\Seeders\Production\QuoteProjectsHoursEditPermission;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(MigrationRegionSeeder::class);
 //        $this->call(MigrationRatesSeeder::class);
 //        $this->call(MigrationProductsSeeder::class);
-        $this->call(MigrationClientsSeeder::class);
+//        $this->call(MigrationClientsSeeder::class);
+        $this->call(QuoteProjectsHoursEditPermission::class);
     }
 }
