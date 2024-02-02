@@ -67,7 +67,7 @@ class ProductsRelationManager extends RelationManager
                     ->action(fn (Product $record) => $record->moveOrderDown()),
                 Tables\Actions\Action::make('edit')
                     ->label('Edit')
-                    ->url(fn (Product $record): string => url('/admin/products/'.$record->id.'/edit?type=quote'))
+                    ->url(fn (Product $record): string => url('/admin/products/'.$record->id.'/edit?type=quote&activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\DeleteAction::make(),
             ])

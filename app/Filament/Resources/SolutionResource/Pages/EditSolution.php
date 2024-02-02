@@ -56,10 +56,18 @@ class EditSolution extends EditRecord
 
     protected function getBreadcrumbs(): array
     {
-        return [
-            '/admin/products' => 'Products',
-            '/admin/products/'.$this->record->product->id.'/edit?activeRelationManager=0' => $this->record->product->name,
-            '/admin/solutions/'.$this->record->id.'/edit' => $this->record->name,
-        ];
+        if ((isset($_GET['type']) && $_GET['type'] == "quote")) {
+        	return [
+                '/admin/quotes/'.$this->record->product->quote->id.'/edit?activeRelationManager=0' => 'Products',
+            	'/admin/products/'.$this->record->product->id.'/edit?activeRelationManager=0' => $this->record->product->name,
+            	'/admin/solutions/'.$this->record->id.'/edit' => $this->record->name,
+        	];
+        } else {
+        	return [
+            	'/admin/products' => 'Products',
+            	'/admin/products/'.$this->record->product->id.'/edit?activeRelationManager=0' => $this->record->product->name,
+            	'/admin/solutions/'.$this->record->id.'/edit' => $this->record->name,
+        	];
+        }
     }
 }

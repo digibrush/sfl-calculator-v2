@@ -60,11 +60,20 @@ class EditProject extends EditRecord
 
     protected function getBreadcrumbs(): array
     {
-        return [
-            '/admin/products' => 'Products',
-            '/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => $this->record->solution->product->name,
-            '/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => $this->record->solution->name,
-            '/admin/projects/'.$this->record->id.'/edit' => $this->record->name,
-        ];
+        if ((isset($_GET['type']) && $_GET['type'] == "quote")) {
+        	return [
+                '/admin/quotes/'.$this->record->solution->product->quote->id.'/edit?activeRelationManager=0' => 'Products',
+            	'/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => $this->record->solution->product->name,
+            	'/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => $this->record->solution->name,
+            	'/admin/projects/'.$this->record->id.'/edit' => $this->record->name,
+        	];
+        } else {
+        	return [
+            	'/admin/products' => 'Products',
+            	'/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => $this->record->solution->product->name,
+            	'/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => $this->record->solution->name,
+            	'/admin/projects/'.$this->record->id.'/edit' => $this->record->name,
+        	];
+        }
     }
 }

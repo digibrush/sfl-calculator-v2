@@ -12,6 +12,8 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\Page;
 
 class ProjectResource extends Resource
 {
@@ -69,6 +71,7 @@ class ProjectResource extends Resource
                                     ->schema([
                                         Forms\Components\TextInput::make('hours')
                                             ->default(0)
+                                            ->disabled(fn (Page $livewire): bool => $livewire instanceof EditRecord)
                                             ->numeric()
                                             ->columnSpan(12),
                                     ])
