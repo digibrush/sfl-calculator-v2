@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Resources\Pages\Page;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectResource extends Resource
 {
@@ -71,7 +72,7 @@ class ProjectResource extends Resource
                                     ->schema([
                                         Forms\Components\TextInput::make('hours')
                                             ->default(0)
-                                            ->disabled(fn (Page $livewire): bool => $livewire instanceof EditRecord)
+                                            ->disabled(fn (Page $livewire): bool => (isset($_GET['type'])) ? (!Auth::user()->can('Edit Project Hours In Quotes')) : false)
                                             ->numeric()
                                             ->columnSpan(12),
                                     ])
