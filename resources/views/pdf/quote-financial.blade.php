@@ -462,7 +462,7 @@
                                         <tbody style="padding-top: 20px;">
                                         <tr>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                            <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c">{{ $project->name }}</td>
+                                            <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c; padding-left: 20px;">{{ $project->name }}</td>
                                             <td width="20%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
                                                 {{ ((float)$project->total_hours) }}
                                             </td>
