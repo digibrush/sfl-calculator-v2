@@ -62,10 +62,10 @@ class EditProject extends EditRecord
     {
         if ((isset($_GET['type']) && $_GET['type'] == "quote")) {
         	return [
-                '/admin/quotes/'.$this->record->solution->product->quote->id.'/edit?activeRelationManager=0' => 'Products',
-            	'/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => $this->record->solution->product->name,
-            	'/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => $this->record->solution->name,
-            	'/admin/projects/'.$this->record->id.'/edit' => $this->record->name,
+                '/admin/quotes/'.$this->record->solution->product->quote->id.'/edit?type=quote&activeRelationManager=0' => 'Quotes',
+            	'/admin/products/'.$this->record->solution->product->id.'/edit?type=quote&activeRelationManager=0' => $this->record->solution->product->name,
+            	'/admin/solutions/'.$this->record->solution->id.'/edit?type=quote&activeRelationManager=0' => $this->record->solution->name,
+            	'/admin/projects/'.$this->record->id.'/edit?type=quote' => $this->record->name,
         	];
         } else {
         	return [

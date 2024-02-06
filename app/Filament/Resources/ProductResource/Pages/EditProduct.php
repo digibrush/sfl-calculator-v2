@@ -59,8 +59,8 @@ class EditProduct extends EditRecord
     {
         if ((isset($_GET['type']) && $_GET['type'] == "quote")) {
             return [
-                '/admin/quotes/'.$this->record->quote->id.'/edit?activeRelationManager=0' => 'Products',
-                '/admin/products/'.$this->record->id.'/edit' => $this->record->name,
+                '/admin/quotes/'.$this->record->quote->id.'/edit?type=quote&activeRelationManager=0' => 'Quotes',
+                '/admin/products/'.$this->record->id.'/edit?type=quote' => $this->record->name,
             ];
         } else {
             return [
