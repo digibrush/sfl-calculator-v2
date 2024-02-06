@@ -52,7 +52,7 @@ class GenerateQuoteFinancialPDF implements ShouldQueue
             ->setOption('page-height', '295mm')
             ->setOption('page-width', '181mm')
             ->setPaper('a4', 'landscape');
-        $filename = date('YmdHis');
+        $filename = "quotation-".$quote->reference."-".date('YmdHis');
         $pdf->save(storage_path('app/public/quotes/'.$quote->id.'/'.$filename.'.pdf'));
 
         $document->update([

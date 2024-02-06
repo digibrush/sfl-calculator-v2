@@ -4,6 +4,7 @@ namespace App\Filament\Resources\QuoteResource\RelationManagers;
 
 use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 use App\Models\Product;
+use App\Models\Solution;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -27,10 +28,32 @@ class ProductsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-            ]);
+                Forms\Components\Card::make()
+                    ->schema([
+                        Forms\Components\Fieldset::make('basics')
+                            ->label('Basics')
+                            ->schema([
+                                Forms\Components\Grid::make(12)
+                                    ->schema([
+                                        Forms\Components\Hidden::make('type')
+                                            ->default('quote'),
+                                        Forms\Components\TextInput::make('name')
+                                            ->required()
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\Textarea::make('overview')
+                                            ->required()
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\Toggle::make('status')
+                                    ])
+                                    ->columnSpan(12)
+                            ])
+                            ->columnSpan(12),
+                    ])
+                    ->columnSpan(12),
+            ])
+            ->columns(12);
     }
 
     public static function table(Table $table): Table
@@ -54,6 +77,8 @@ class ProductsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
+                Tables\Actions\CreateAction::make()
+                    ->successRedirectUrl(fn (Product $record): string => '/admin/products/'.$record->id.'/edit?'.((!is_null($record->quote)) ? 'type=quote&' : '').'activeRelationManager=0'),
                 FilamentExportHeaderAction::make('export')
             ])
             ->actions([
