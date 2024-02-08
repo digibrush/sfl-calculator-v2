@@ -165,8 +165,7 @@ class ProductResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->url(fn (Product $record): string => url('/admin/products/'.$record->id.'/edit?activeRelationManager=0')),
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

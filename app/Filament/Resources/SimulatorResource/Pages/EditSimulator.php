@@ -36,4 +36,12 @@ class EditSimulator extends EditRecord
     {
         return 'Summary';
     }
+
+    protected function getBreadcrumbs(): array
+    {
+        return [
+            '/admin/simulations' => 'Simulations',
+            '#' => $this->record->id,
+        ];
+    }
 }
