@@ -226,6 +226,9 @@ class QuoteResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created Date')
                     ->dateTime(),
+                Tables\Columns\TextColumn::make('expires_at')
+                    ->label('Expiry Date')
+                    ->date(),
                 Tables\Columns\TextColumn::make('assignee.name')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('client.name')
