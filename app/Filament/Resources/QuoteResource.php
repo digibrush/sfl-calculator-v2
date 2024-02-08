@@ -86,6 +86,7 @@ class QuoteResource extends Resource
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('validity_upto')
+                                            ->label('Quote Validity (Days)')
                                             ->required()
                                             ->numeric()
                                             ->reactive()
@@ -96,6 +97,7 @@ class QuoteResource extends Resource
                                             ->minValue(1)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('expires_at')
+                                            ->label('Quote Valid Till')
                                             ->default(now()->addDays((int)env('QUOTE_LIFETIME'))->format('Y-m-d'))
                                             ->disabled()
                                             ->maxLength(255)
@@ -227,7 +229,7 @@ class QuoteResource extends Resource
                     ->label('Created Date')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('expires_at')
-                    ->label('Expiry Date')
+                    ->label('Quote Valid Till')
                     ->date(),
                 Tables\Columns\TextColumn::make('assignee.name')
                     ->toggleable(),
