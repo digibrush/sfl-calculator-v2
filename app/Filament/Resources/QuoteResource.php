@@ -6,6 +6,7 @@ use App\Filament\Resources\QuoteResource\Pages;
 use App\Filament\Resources\QuoteResource\RelationManagers;
 use App\Models\Quote;
 use App\Models\Region;
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Pages\CreateRecord;
@@ -82,6 +83,22 @@ class QuoteResource extends Resource
                                         Forms\Components\TextInput::make('reference')
                                             ->required()
                                             ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('validity_upto')
+                                            ->required()
+                                            ->numeric()
+                                            ->reactive()
+                                            ->afterStateUpdated(function (Closure $set, $state) {
+                                                $set('expires_at', now()->addDays((int)$state)->format('Y-m-d'));
+                                            })
+                                            ->default(env('QUOTE_LIFETIME'))
+                                            ->minValue(1)
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('expires_at')
+                                            ->required()
+                                            ->default(now()->addDays((int)env('QUOTE_LIFETIME'))->format('Y-m-d'))
+                                            ->disabled()
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\Toggle::make('converted')
