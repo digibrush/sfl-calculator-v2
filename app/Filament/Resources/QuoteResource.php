@@ -96,7 +96,6 @@ class QuoteResource extends Resource
                                             ->minValue(1)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('expires_at')
-                                            ->required()
                                             ->default(now()->addDays((int)env('QUOTE_LIFETIME'))->format('Y-m-d'))
                                             ->disabled()
                                             ->maxLength(255)
