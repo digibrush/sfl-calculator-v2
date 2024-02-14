@@ -86,7 +86,7 @@ class QuoteResource extends Resource
                                             ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
                                             ->maxLength(255)
                                             ->columnSpan(12),
-                                        Forms\Components\TextInput::make('enquiry')
+                                        Forms\Components\TextInput::make('enquiry'),
                                         Forms\Components\TextInput::make('validity_upto')
                                             ->label('Quote Validity (Days)')
                                             ->required()
