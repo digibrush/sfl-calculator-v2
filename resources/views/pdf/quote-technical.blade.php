@@ -331,6 +331,11 @@
                     Quotation {{ $quote->reference }}
                 </td>
             </tr>
+            <tr>
+                <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
+                    Valid Till {{ $quote->expires_at }}
+                </td>
+            </tr>
         </table>
     </div>
     <div class="page-break"></div>
@@ -457,7 +462,7 @@
                                         <tbody style="padding-top: 20px;">
                                         <tr>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                            <td width="60%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c">{{ $project->name }}</td>
+                                            <td width="60%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c padding-left: 20px;">{{ $project->name }}</td>
                                             <td width="30%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
                                                 {{ ((float)$project->total_hours) }}
                                             </td>

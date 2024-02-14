@@ -6,6 +6,7 @@ use App\Filament\Resources\QuoteResource\Pages;
 use App\Filament\Resources\QuoteResource\RelationManagers;
 use App\Models\Quote;
 use App\Models\Region;
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Pages\CreateRecord;
@@ -86,6 +87,21 @@ class QuoteResource extends Resource
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('enquiry')
+                                        Forms\Components\TextInput::make('validity_upto')
+                                            ->label('Quote Validity (Days)')
+                                            ->required()
+                                            ->numeric()
+                                            ->reactive()
+                                            ->afterStateUpdated(function (Closure $set, $state) {
+                                                $set('expires_at', now()->addDays((int)$state)->format('Y-m-d'));
+                                            })
+                                            ->default(env('QUOTE_LIFETIME'))
+                                            ->minValue(1)
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('expires_at')
+                                            ->label('Quote Valid Till')
+                                            ->default(now()->addDays((int)env('QUOTE_LIFETIME'))->format('Y-m-d'))
+                                            ->disabled()
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\Toggle::make('converted')
@@ -214,6 +230,9 @@ class QuoteResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created Date')
                     ->dateTime(),
+                Tables\Columns\TextColumn::make('expires_at')
+                    ->label('Quote Valid Till')
+                    ->date(),
                 Tables\Columns\TextColumn::make('assignee.name')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('client.name')

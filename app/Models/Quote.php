@@ -31,6 +31,8 @@ class Quote extends Model implements Auditable
         'discount_note',
         'discount_amount',
         'total_cost',
+        'validity_upto',
+        'expires_at',
         'standard_online_rate',
         'standard_offline_rate',
         'premium_online_rate',
@@ -58,6 +60,8 @@ class Quote extends Model implements Auditable
         'discount_note',
         'discount_amount',
         'total_cost',
+        'validity_upto',
+        'expires_at',
         'standard_online_rate',
         'standard_offline_rate',
         'premium_online_rate',
@@ -76,6 +80,7 @@ class Quote extends Model implements Auditable
         'cost' => 'float',
         'discount_amount' => 'float',
         'total_cost' => 'float',
+        'validity_upto' => 'integer',
         'converted' => 'boolean',
     ];
 

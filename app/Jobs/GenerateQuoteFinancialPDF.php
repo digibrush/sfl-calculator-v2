@@ -11,6 +11,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Joli\JoliNotif\Notification;
+use Joli\JoliNotif\NotifierFactory;
 
 class GenerateQuoteFinancialPDF implements ShouldQueue
 {
@@ -59,5 +61,12 @@ class GenerateQuoteFinancialPDF implements ShouldQueue
             'status' => 'generated',
             'financial' => env('APP_URL').'/storage/quotes/'.$quote->id.'/'.$filename.'.pdf',
         ]);
+
+        $notification = (new Notification())
+            ->setBody('Financial document generated for quote '.$quote->reference)
+            ->setTitle('Document Generated')
+            ->setIcon(asset('/images/sfl_header_logo.png'));
+
+        NotifierFactory::create()->send($notification);
     }
 }
