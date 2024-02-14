@@ -333,6 +333,11 @@
             </tr>
             <tr>
                 <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
+                    {{ (($quote->enquiry != null)) ?  'Enquiry '.$quote->enquiry : '' }}
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
                     Valid Till {{ $quote->expires_at }}
                 </td>
             </tr>
