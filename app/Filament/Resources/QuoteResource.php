@@ -81,6 +81,7 @@ class QuoteResource extends Resource
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('reference')
                                             ->required()
+                                            ->disabled()
                                             ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
                                             ->maxLength(255)
                                             ->columnSpan(12),
