@@ -11,6 +11,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Joli\JoliNotif\Notification;
+use Joli\JoliNotif\NotifierFactory;
 
 class GenerateQuoteTechnicalPDF implements ShouldQueue
 {
@@ -59,5 +61,11 @@ class GenerateQuoteTechnicalPDF implements ShouldQueue
             'status' => 'generated',
             'technical' => env('APP_URL').'/storage/quotes/'.$quote->id.'/'.$filename.'.pdf',
         ]);
+
+        $notification = (new Notification())
+            ->setBody('Technical document generated for quote '.$quote->reference)
+            ->setTitle('Document Generated');
+
+        NotifierFactory::create()->send($notification);
     }
 }
