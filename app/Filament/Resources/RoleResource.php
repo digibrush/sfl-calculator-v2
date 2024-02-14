@@ -123,6 +123,28 @@ class RoleResource extends Resource
                                                     ->columnSpan(12),
                                             ])
                                             ->columnSpan(4),
+                                        Forms\Components\Fieldset::make('solutions')
+                                            ->label('Solutions')
+                                            ->schema([
+                                                Forms\Components\CheckboxList::make('permissions')
+                                                    ->label('')
+                                                    ->bulkToggleable(true)
+                                                    ->required()
+                                                    ->relationship('permissions','name', fn (Builder $query) => $query->where('name','LIKE','%Solutions')->orderBy('id'))
+                                                    ->columnSpan(12),
+                                            ])
+                                            ->columnSpan(4),
+                                        Forms\Components\Fieldset::make('projects')
+                                            ->label('Projects')
+                                            ->schema([
+                                                Forms\Components\CheckboxList::make('permissions')
+                                                    ->label('')
+                                                    ->bulkToggleable(true)
+                                                    ->required()
+                                                    ->relationship('permissions','name', fn (Builder $query) => $query->where('name','LIKE','%Projects')->orderBy('id'))
+                                                    ->columnSpan(12),
+                                            ])
+                                            ->columnSpan(4),
                                         Forms\Components\Fieldset::make('simulations')
                                             ->label('Simulations')
                                             ->schema([
