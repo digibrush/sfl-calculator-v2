@@ -47,8 +47,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(MigrationProductsSeeder::class);
 //        $this->call(MigrationClientsSeeder::class);
 //        $this->call(QuoteProjectsHoursEditPermission::class);
-//        $this->call(SolutionsPermissions::class);
-//        $this->call(ProjectsPermissions::class);
+        $this->call(SolutionsPermissions::class);
+        $this->call(ProjectsPermissions::class);
         $this->call(QuotesSolutionsPermissions::class);
         $this->call(QuotesProjectsPermissions::class);
     }
