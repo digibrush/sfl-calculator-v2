@@ -11,13 +11,31 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectsRelationManager extends RelationManager
 {
     protected static string $relationship = 'projects';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public function canCreate(): bool
+    {
+        if ($this->ownerRecord->product->quote != null) {
+            return Auth::user()->can('Create Projects In Quotes');
+        }
+        return Auth::user()->can('Create Projects');
+    }
+
+    public function canDelete(Model $record): bool
+    {
+        if ($this->ownerRecord->product->quote != null) {
+            return Auth::user()->can('Delete Projects In Quotes');
+        }
+        return Auth::user()->can('Delete Projects');
+    }
 
     protected function getTableRecordUrlUsing(): ?Closure
     {
