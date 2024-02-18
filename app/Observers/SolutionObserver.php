@@ -54,7 +54,19 @@ class SolutionObserver
      */
     public function deleted(Solution $solution): void
     {
-        //
+        $product = Product::findOrFail($solution->product->id);
+
+        $total_hours = $product->solutions()->where('status', true)->sum('hours');
+        $total_cost = $product->solutions()->where('status', true)->sum('cost');
+        $total_projects = $product->solutions()->where('status', true)->sum('projects');
+        $total_solutions = $product->solutions()->where('status', true)->count();
+
+        $product->update([
+            'hours' => $total_hours,
+            'cost' => $total_cost,
+            'projects' => $total_projects,
+            'solutions' => $total_solutions
+        ]);
     }
 
     /**
