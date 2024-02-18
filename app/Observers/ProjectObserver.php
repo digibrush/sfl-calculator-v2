@@ -101,7 +101,19 @@ class ProjectObserver
      */
     public function deleted(Project $project): void
     {
-        //
+        if ($project->solution != null) {
+            $solution = Solution::findOrFail($project->solution->id);
+
+            $total_hours = $solution->projects()->where('status', true)->sum('total_hours');
+            $total_cost = $solution->projects()->where('status', true)->sum('total_cost');
+            $total_projects = $solution->projects()->where('status', true)->count();
+
+            $solution->update([
+                'hours' => $total_hours,
+                'cost' => $total_cost,
+                'projects' => $total_projects
+            ]);
+        }
     }
 
     /**

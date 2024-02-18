@@ -44,7 +44,23 @@ class ProductObserver
      */
     public function deleted(Product $product): void
     {
-        //
+        if ($product->type == 'quote' || $product->type == 'simulation' || $product->type == 'template') {
+            $quote = $product->quote;
+
+            $total_hours = $quote->products()->where('status', true)->sum('hours');
+
+            $total_cost = $quote->products()->where('status', true)->sum('cost');
+
+            $total_solutions = $quote->products()->where('status', true)->sum('solutions');
+            $total_projects = $quote->products()->where('status', true)->sum('projects');
+
+            $quote->update([
+                'hours' => $total_hours,
+                'solutions' => $total_solutions,
+                'projects' => $total_projects,
+                'cost' => $total_cost,
+            ]);
+        }
     }
 
     /**
