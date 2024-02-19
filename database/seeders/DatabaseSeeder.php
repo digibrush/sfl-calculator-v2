@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\Development\DevelopmentCompaniesSeeder;
+use Database\Seeders\Development\DevelopmentOccupationsSeeder;
 use Database\Seeders\Development\DevelopmentPersonnelSeeder;
 use Database\Seeders\Development\DevelopmentProductsSeeder;
 use Database\Seeders\Development\DevelopmentQuotesSeeder;
@@ -37,11 +38,12 @@ class DatabaseSeeder extends Seeder
 //        $this->call(DevelopmentUsersSeeder::class);
 //        $this->call(DevelopmentQuotesSeeder::class);
 //        $this->call(DevelopmentRegionSeeder::class);
+        $this->call(DevelopmentOccupationsSeeder::class);
 //        $this->call(MigrationTermsSeeder::class);
 //        $this->call(MigrationRegionSeeder::class);
 //        $this->call(MigrationRatesSeeder::class);
 //        $this->call(MigrationProductsSeeder::class);
 //        $this->call(MigrationClientsSeeder::class);
-        $this->call(QuoteProjectsHoursEditPermission::class);
+//        $this->call(QuoteProjectsHoursEditPermission::class);
     }
 }
