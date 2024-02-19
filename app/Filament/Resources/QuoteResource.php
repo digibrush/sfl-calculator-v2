@@ -100,7 +100,15 @@ class QuoteResource extends Resource
                                             ->label('Quote Valid Till')
                                             ->default(now()->addDays((int)env('QUOTE_LIFETIME'))->format('Y-m-d'))
                                             ->disabled()
+                                            ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
                                             ->helperText(fn (Quote $record): string => 'Last updated on '.$record->updated_at->format('Y-m-d'))
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('expires_at')
+                                            ->label('Quote Valid Till')
+                                            ->default(now()->addDays((int)env('QUOTE_LIFETIME'))->format('Y-m-d'))
+                                            ->disabled()
+                                            ->hidden(fn(Page $livewire): bool => !$livewire instanceof CreateRecord)
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\Toggle::make('converted')
