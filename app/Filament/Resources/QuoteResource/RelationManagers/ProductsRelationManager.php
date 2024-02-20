@@ -11,13 +11,25 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsRelationManager extends RelationManager
 {
     protected static string $relationship = 'products';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public function canCreate(): bool
+    {
+        return Auth::user()->can('Create Products');
+    }
+
+    public function canDelete(Model $record): bool
+    {
+        return Auth::user()->can('Delete Products');
+    }
 
     protected function getTableQuery(): Builder
     {
