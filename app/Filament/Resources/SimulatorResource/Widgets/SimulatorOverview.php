@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\SimulatorResource\Widgets;
 
-use App\Models\Quote;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Card;
 use Illuminate\Database\Eloquent\Model;

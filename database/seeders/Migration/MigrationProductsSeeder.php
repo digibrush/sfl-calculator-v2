@@ -6,7 +6,6 @@ use App\Models\Personnel;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Solution;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;

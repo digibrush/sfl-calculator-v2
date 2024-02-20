@@ -27,4 +27,14 @@ class Occupation extends Model
     protected $casts = [
         'discount' => 'float',
     ];
+
+    /**
+     * User Relationship
+     *
+     * An occupation has many users
+     */
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

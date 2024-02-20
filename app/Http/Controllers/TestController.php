@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quote;
-use Barryvdh\DomPDF\Facade as PDF;
 use Barryvdh\Snappy\Facades\SnappyPdf;
-use Illuminate\Http\Request;
 
 class TestController extends Controller
 {

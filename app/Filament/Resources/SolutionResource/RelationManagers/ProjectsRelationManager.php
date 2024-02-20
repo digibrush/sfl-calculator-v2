@@ -2,16 +2,14 @@
 
 namespace App\Filament\Resources\SolutionResource\RelationManagers;
 
-use App\Models\Solution;
-use Closure;
 use App\Models\Project;
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProjectsRelationManager extends RelationManager
 {

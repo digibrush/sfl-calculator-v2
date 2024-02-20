@@ -15,7 +15,6 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 
 class QuoteResource extends Resource
@@ -113,6 +112,7 @@ class QuoteResource extends Resource
                             ->columnSpan(12),
                         Forms\Components\Fieldset::make('discount')
                             ->label('Discount')
+                            ->hidden(fn(Page $livewire): bool => !Auth::user()->discount_allowed)
                             ->schema([
                                 Forms\Components\Grid::make(12)
                                     ->schema([

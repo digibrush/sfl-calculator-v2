@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\Quote;
 use App\Models\Solution;
-use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {

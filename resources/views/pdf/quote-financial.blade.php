@@ -4,6 +4,7 @@
         .page-break {
             page-break-after: always;
         }
+
         .pdf-cover-background {
             background-image: url({{asset("/images/cw_pdf_cover.jpg")}});
             height: 920PX;
@@ -13,6 +14,7 @@
             background-size: cover;
             position: relative;
         }
+
         .slide-header {
             background-image: url({{asset("/images/cw_content_header.jpg")}});
             width: 100%;
@@ -24,6 +26,7 @@
             background-size: 100%;
             position: relative;
         }
+
         .pdf-end-background {
             background-image: url({{asset("/images/cw_pdf_end.jpg")}});
             height: 920PX;
@@ -33,61 +36,75 @@
             background-size: cover;
             position: relative;
         }
+
         .inquiry_header {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             font-weight: 600;
         }
-        .inquiry_header h2{
+
+        .inquiry_header h2 {
             color: #0c283c;
         }
-        .inquery-table h4{
+
+        .inquery-table h4 {
             text-transform: capitalize;
             color: #0c283c;
         }
+
         .vue-form-wizard .wizard-tab-content {
             min-height: 100px;
             padding: 30px 0px !important;
         }
+
         .inquery-table-header {
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         .inquery-table .row {
             margin-left: 0px;
             margin-right: 0px;
         }
-        .txt-black{
+
+        .txt-black {
             color: black;
         }
+
         .card .row span {
             /* margin-top: 20px !important; */
         }
-        .card .row span a{
+
+        .card .row span a {
             font-weight: 400;
             font-size: 12px;
         }
+
         .task-row {
             height: 40px;
             border: none !important;
             border-radius: 0px !important;
         }
+
         .task-row-card {
             border: none !important;
             border-radius: 0px !important;
-            box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.01);
+            box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.01);
         }
-        .task-card-main{
+
+        .task-card-main {
             border: none !important;
             border-radius: 0px !important;
-            box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.04);
+            box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.04);
         }
+
         .align-center-left {
             display: flex;
             align-items: center;
         }
+
         .toggle-button:before {
             position: absolute;
             content: "";
@@ -100,10 +117,12 @@
             border-radius: 50%;
             border: 1px solid #36B1E5;
         }
+
         .vue-form-wizard * {
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
+
         .toggle-button {
             width: 49px;
             height: 21px;
@@ -117,123 +136,157 @@
             transition: 0.4s;
             border-radius: 35px;
         }
+
         input:checked + .toggle-button:before {
             transform: translateX(24px);
         }
+
         .inquiry-selection-card {
             border-radius: 10px !important;
             border: none;
             min-height: 50px;
             background-color: white;
-            box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.06);
+            box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.06);
             justify-content: center;
         }
+
         .task-row-card {
             border: none !important;
             border-radius: 10px !important;
             box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 1%);
         }
+
         .finish-button {
             background-color: #66d825 !important;
             border-color: #55b41e !important;
             color: white;
         }
-        .small-preant-task{
+
+        .small-preant-task {
             display: none;
         }
-        .small-module-name{
+
+        .small-module-name {
             display: none;
         }
-        .small-inquiry-selection-card{
+
+        .small-inquiry-selection-card {
             display: none;
         }
-        .inquiry-selection-card{
+
+        .inquiry-selection-card {
             display: block;
         }
-        .no-wrap-row{
+
+        .no-wrap-row {
             flex-wrap: unset !important;
         }
+
         .no-wrap-row p {
             margin-bottom: 0px !important;
             font-size: 12px;
             width: 100%;
         }
-        .list-item-end{
+
+        .list-item-end {
             display: flex;
             align-items: center;
             justify-content: flex-end;
         }
-        .list-item-start{
+
+        .list-item-start {
             display: flex;
             align-items: center;
             justify-content: flex-start;
         }
+
         .no-wrap-row i {
             font-size: 18px !important;
             color: rgb(190, 185, 190);
         }
-        .small-task-row-card{
+
+        .small-task-row-card {
             display: none;
         }
-        .task-row-card{
+
+        .task-row-card {
             display: block;
         }
-        .list_item_column{
+
+        .list_item_column {
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
         }
+
         .completed-automation-text {
             height: 30px !important;
             width: 75px !important;
         }
-        .help_popup{
-            color: $primary-color !important;
+
+        .help_popup {
+            color: $ primary-color !important;
             font-weight: 400 !important;
         }
+
         .vue-form-wizard.md .wizard-icon-circle {
             width: 50px !important;
             height: 50px !important;
         }
+
         .vue-form-wizard.md .wizard-navigation .wizard-progress-with-circle {
             top: 30px !important;
         }
+
         .vue-form-wizard.md .wizard-nav-pills > li.active > a .wizard-icon {
             font-size: 18px !important;
         }
+
         span.stepTitle {
             margin-top: 14px;
             font-size: 12px;
         }
+
         .vue-form-wizard .wizard-nav-pills > li > a {
             color: rgb(135 123 123 / 96%) !important;
         }
-        .f-9{
+
+        .f-9 {
             font-size: 9px;
         }
+
         .vue-form-wizard .wizard-icon-circle {
             border: none !important;
             color: white !important;
             background-color: #ABABAB !important;
         }
+
         .vue-form-wizard.md .wizard-icon-circle {
             font-size: 18px !important;
         }
+
         .vue-form-wizard .wizard-icon-circle .wizard-icon-container {
             border-radius: 50% !important;
         }
+
         .vue-form-wizard .wizard-tab-content {
             padding: 50px 0px !important;
         }
-        .full-task-row article{
+
+        .full-task-row article {
             background-color: #F4F6FA !important;
             color: #0C283C;
         }
-        .full-task-row article:nth-of-type(2n){
+
+        .full-task-row article:nth-of-type(2n) {
             background-color: white !important;
         }
-        thead { display: table-row-group !important;}
+
+        thead {
+            display: table-row-group !important;
+        }
+
         /*tfoot { display: table-row-group !important;}*/
         /*tr { page-break-inside: avoid !important;}*/
         @font-face {
@@ -298,9 +351,11 @@
             font-style: normal;
             font-display: swap;
         }
+
         body {
             font-family: 'Graphik' !important;
         }
+
         table {
             border-collapse: collapse !important;
         }
@@ -310,8 +365,10 @@
 {{--    Cover Page--}}
 <div class="pdf-cover-background">
     <div>
-        <h1 style="padding-left: 180px; color: #0C283C; padding-top: 480px; font-weight: 500; font-size: 50px">Proposal</h1>
-        <h1 style="padding-left: 50px; color: #0C283C; font-size: 36px; font-weight: 500">Cargowise One Consultation</h1>
+        <h1 style="padding-left: 180px; color: #0C283C; padding-top: 480px; font-weight: 500; font-size: 50px">
+            Proposal</h1>
+        <h1 style="padding-left: 50px; color: #0C283C; font-size: 36px; font-weight: 500">Cargowise One
+            Consultation</h1>
     </div>
     <hr style="color: rgba(241,241,241,0.82); margin-left: 5%; margin-right: 65%;">
     <div style="padding-top: 100px; padding-left: 180px; width: 400px; display: flex; align-items: center">
@@ -337,7 +394,7 @@
 </div>
 
 {{--    First Images page--}}
-<div >
+<div>
     <img src="{{asset("/images/bar-charts-01.jpg")}}" alt="" width="1500px" height="920px">
     <div class="page-break"></div>
 </div>
@@ -370,10 +427,11 @@
                 @endphp
                 <div class="page-break"></div>
                 <div class="slide-header">
-                    <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed Breakdown - {{ $product->name }}</h1>
+                    <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed
+                        Breakdown - {{ $product->name }}</h1>
                 </div>
                 <div style="padding: 0; margin: 0;">
-                    <table  width="100%" style="color: #153147" border="0">
+                    <table width="100%" style="color: #153147" border="0">
                         <thead>
                         <tr style="height: 80px; background-color: #dcdcdc; font-weight: 400; font-size: 14px; ">
                             <td width="5%">&nbsp;</td>
@@ -396,10 +454,11 @@
                     @endphp
                     <div class="page-break"></div>
                     <div class="slide-header">
-                        <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed Breakdown - {{ $product->name }}</h1>
+                        <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Detailed
+                            Breakdown - {{ $product->name }}</h1>
                     </div>
                     <div style="padding: 0; margin: 0;">
-                        <table  width="100%" style="color: #153147" border="0">
+                        <table width="100%" style="color: #153147" border="0">
                             <thead>
                             <tr style="height: 80px; background-color: #dcdcdc; font-weight: 400; font-size: 14px; ">
                                 <td width="5%">&nbsp;</td>
@@ -426,15 +485,22 @@
                                         <table width="100%">
                                             <tbody style="padding-top: 20px;">
                                             <tr>
-                                                <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                                <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }} (Total)</td>
-                                                <td width="20%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
+                                                <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;
+                                                </td>
+                                                <td width="50%"
+                                                    style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }}
+                                                    (Total)
+                                                </td>
+                                                <td width="20%"
+                                                    style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
                                                     {{ ((float)$project->solution->hours) }}
                                                 </td>
-                                                <td width="20%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
+                                                <td width="20%"
+                                                    style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
                                                     {{ number_format(((float)$project->solution->cost),2) }}
                                                 </td>
-                                                <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
+                                                <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -462,11 +528,14 @@
                                         <tbody style="padding-top: 20px;">
                                         <tr>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                            <td width="50%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c; padding-left: 20px;">{{ $project->name }}</td>
-                                            <td width="20%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
+                                            <td width="50%"
+                                                style="padding-top: 10px;padding-bottom: 10px; color: #0c283c; padding-left: 20px;">{{ $project->name }}</td>
+                                            <td width="20%"
+                                                style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
                                                 {{ ((float)$project->total_hours) }}
                                             </td>
-                                            <td width="20%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
+                                            <td width="20%"
+                                                style="text-align: center;padding-top: 10px;padding-bottom: 10px; color: #0c283c">
                                                 {{ number_format(((float)$project->total_cost),2) }}
                                             </td>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
@@ -502,17 +571,17 @@
 <div class="container" style="padding: 0; margin: 0;">
     <table width="100%" style="color: #153147">
         <thead>
-            <tr style="height: 80px; background-color: #dcdcdc; font-weight: 400; font-size: 14px;">
-                <td width="5%">&nbsp;</td>
-                <td  width="30%"> SELECTED MODULE / TASKS</td>
-                <td style="text-align: center">&nbsp;</td>
-                <td style="text-align: center; padding-left: 20px;"> TASKS</td>
-                <td style="text-align: center; padding-left: 20px;"> TOTAL HOURS</td>
-                <td style="text-align: center; padding-left: 20px;"> COST (USD)</td>
-                <td width="5%">&nbsp;</td>
-            </tr>
+        <tr style="height: 80px; background-color: #dcdcdc; font-weight: 400; font-size: 14px;">
+            <td width="5%">&nbsp;</td>
+            <td width="30%"> SELECTED MODULE / TASKS</td>
+            <td style="text-align: center">&nbsp;</td>
+            <td style="text-align: center; padding-left: 20px;"> TASKS</td>
+            <td style="text-align: center; padding-left: 20px;"> TOTAL HOURS</td>
+            <td style="text-align: center; padding-left: 20px;"> COST (USD)</td>
+            <td width="5%">&nbsp;</td>
+        </tr>
         </thead>
-        <div class="container" >
+        <div class="container">
             <tbody>
             @foreach($quote->products()->where('status',true)->get() as $product)
                 <tr style="height: 70px; font-size: 15px;">
@@ -537,7 +606,7 @@
                 <td width="10%">&nbsp;</td>
                 <td colspan="2" style="background-color: #ddf1fe; padding-left: 10px;">
                     Total
-{{--                    Total (For 2 Countries and 3 Branches)--}}
+                    {{--                    Total (For 2 Countries and 3 Branches)--}}
                 </td>
                 <td style="text-align: center; background-color: #ddf1fe;">
                     {{ $quote->projects }}
@@ -594,7 +663,8 @@
     <div class="slide-header">
         <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Notes</h1>
     </div>
-    <div style="word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; margin: 30px 40px 20px 30px; line-height: 26px;  font-weight: 400; font-size: 13px">
+    <div
+        style="word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; margin: 30px 40px 20px 30px; line-height: 26px;  font-weight: 400; font-size: 13px">
         {{ $quote->discount_note }}
     </div>
 @endif
@@ -606,7 +676,8 @@
     @if ($i%24 == 0)
         <div class="page-break"></div>
         <div class="slide-header">
-            <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Terms and Conditions</h1>
+            <h1 style="padding-top: 50px; padding-left: 50px; font-weight: 500; font-size: 36px;">Terms and
+                Conditions</h1>
         </div>
     @endif
     <ul>

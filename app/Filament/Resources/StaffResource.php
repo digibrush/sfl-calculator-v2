@@ -16,7 +16,6 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -65,36 +64,92 @@ class StaffResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Hidden::make('type')
-                    ->default('staff'),
-                Forms\Components\TextInput::make('name')
-                    ->columnSpan('full')
-                    ->required(),
-                Forms\Components\TextInput::make('email')
-                    ->label('Email')
-                    ->columnSpan('full')
-                    ->required(),
-                Forms\Components\Select::make('discount')
-                    ->multiple()
-                    ->options(Region::all()->pluck('name', 'id'))
-                    ->required(),
-                Forms\Components\Select::make('role')
-                    ->required()
-                    ->multiple()
-                    ->relationship('roles','name')
-                    ->preload(),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
-                    ->dehydrateStateUsing(fn($state) => Hash::make($state))
-                    ->same('confirm_password')
-                    ->dehydrated(fn($state) => filled($state)),
-                Forms\Components\TextInput::make('confirm_password')
-                    ->label('Confirm Password')
-                    ->password()
-                    ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
-                    ->dehydrated(false),
-            ]);
+                Forms\Components\Card::make()
+                    ->schema([
+                        Forms\Components\Fieldset::make('basics')
+                            ->label('Basics')
+                            ->schema([
+                                Forms\Components\Grid::make(12)
+                                    ->schema([
+                                        Forms\Components\Hidden::make('type')
+                                            ->default('staff'),
+                                        Forms\Components\TextInput::make('name')
+                                            ->columnSpan(12)
+                                            ->required(),
+                                        Forms\Components\TextInput::make('email')
+                                            ->label('Email')
+                                            ->columnSpan(12)
+                                            ->required(),
+                                        Forms\Components\Select::make('occupation')
+                                            ->label('Job Role')
+                                            ->relationship('occupation', 'name')
+                                            ->required()
+                                            ->columnSpan(12),
+                                    ])
+                                    ->columnSpan(12)
+                            ])
+                            ->columnSpan(12),
+                        Forms\Components\Fieldset::make('security')
+                            ->label('Security')
+                            ->schema([
+                                Forms\Components\Grid::make(12)
+                                    ->schema([
+                                        Forms\Components\Select::make('role')
+                                            ->label('Access Roles')
+                                            ->required()
+                                            ->multiple()
+                                            ->relationship('roles','name')
+                                            ->preload()
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('password')
+                                            ->password()
+                                            ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                                            ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                                            ->same('confirm_password')
+                                            ->dehydrated(fn($state) => filled($state))
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('confirm_password')
+                                            ->label('Confirm Password')
+                                            ->password()
+                                            ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                                            ->dehydrated(false)
+                                            ->columnSpan(12),
+                                    ])
+                                    ->columnSpan(12),
+                            ])
+                            ->columnSpan(12),
+                    ])
+                    ->columnSpan(7),
+                Forms\Components\Card::make()
+                    ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                    ->schema([
+                        Forms\Components\Fieldset::make('discount')
+                            ->label('Discount')
+                            ->schema([
+                                Forms\Components\Grid::make(12)
+                                    ->schema([
+                                        Forms\Components\Toggle::make('discount_allowed')
+                                            ->label('Allowed to add Discounts')
+                                            ->inline()
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('discount_rate')
+                                            ->label('Allowed Maximum Discount')
+                                            ->disabled()
+                                            ->columnSpan(12),
+                                        Forms\Components\Select::make('discount')
+                                            ->label('Regions')
+                                            ->multiple()
+                                            ->options(Region::all()->pluck('name', 'id'))
+                                            ->required()
+                                            ->columnSpan(12),
+                                    ])
+                                    ->columnSpan(12),
+                            ])
+                            ->columnSpan(12),
+                    ])
+                    ->columnSpan(5),
+            ])
+            ->columns(12);
     }
 
     public static function table(Table $table): Table

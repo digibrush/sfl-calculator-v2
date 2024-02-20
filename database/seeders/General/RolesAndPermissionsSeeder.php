@@ -2,9 +2,6 @@
 
 namespace Database\Seeders\General;
 
-use App\Models\Company;
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;

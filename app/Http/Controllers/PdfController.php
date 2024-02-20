@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Document;
 use App\Models\Quote;
-use Illuminate\Http\Request;
 
 class PdfController extends Controller
 {

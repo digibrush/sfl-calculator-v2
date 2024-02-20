@@ -5,7 +5,6 @@ namespace App\Observers;
 use App\Models\Project;
 use App\Models\Rate;
 use App\Models\Solution;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 class ProjectObserver
 {

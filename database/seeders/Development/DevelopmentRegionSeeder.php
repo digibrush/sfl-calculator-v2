@@ -2,7 +2,6 @@
 
 namespace Database\Seeders\Development;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DevelopmentRegionSeeder extends Seeder

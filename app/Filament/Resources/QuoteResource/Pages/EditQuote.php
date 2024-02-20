@@ -5,10 +5,10 @@ namespace App\Filament\Resources\QuoteResource\Pages;
 use App\Filament\Resources\QuoteResource;
 use App\Jobs\SendAssignmentEmail;
 use App\Models\User;
-use Filament\Pages\Actions;
 use Filament\Forms;
-use Illuminate\Database\Eloquent\Builder;
+use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Builder;
 
 class EditQuote extends EditRecord
 {

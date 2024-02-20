@@ -3,7 +3,6 @@
 namespace App\Observers;
 
 use App\Jobs\CalculateProjectTotals;
-use App\Models\Document;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Quote;
