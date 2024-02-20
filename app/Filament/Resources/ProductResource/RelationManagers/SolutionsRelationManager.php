@@ -53,7 +53,7 @@ class SolutionsRelationManager extends RelationManager
                                 Forms\Components\Grid::make(12)
                                     ->schema([
                                         Forms\Components\Hidden::make('type')
-                                            ->default(fn(RelationManager $livewire): string => ((!is_null($livewire->ownerRecord->quote)) ? 'quote' : 'standard')),
+                                            ->default(fn(RelationManager $livewire): string => ((!is_null($livewire->ownerRecord->quote)) ? ($livewire->ownerRecord->quote->type == "standard") ? 'quote' : (($livewire->ownerRecord->quote->type == "simulation") ? 'simulation' : 'template') : 'standard')),
                                         Forms\Components\TextInput::make('name')
                                             ->required()
                                             ->maxLength(255)
@@ -116,7 +116,7 @@ class SolutionsRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? 'type=quote&' : '').'activeRelationManager=0'),
+                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? ($record->product->quote->type == "standard") ? 'type=quote&' : (($record->product->quote->type == "simulation") ? 'type=simulation&' : 'type=template&') : '').'activeRelationManager=0'),
             ])
             ->actions([
                 Tables\Actions\Action::make('edit-product-solution')
@@ -140,7 +140,7 @@ class SolutionsRelationManager extends RelationManager
                     ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=template&activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\DeleteAction::make()
-                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? 'type=quote&' : '').'activeRelationManager=0'),
+                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? ($record->product->quote->type == "standard") ? 'type=quote&' : (($record->product->quote->type == "simulation") ? 'type=simulation&' : 'type=template&') : '').'activeRelationManager=0'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
