@@ -82,7 +82,11 @@ class QuoteResource extends Resource
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('reference')
                                             ->required()
+                                            ->disabled()
                                             ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('enquiry')
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('validity_upto')
@@ -112,7 +116,7 @@ class QuoteResource extends Resource
                                             ->maxLength(255)
                                             ->columnSpan(12),
                                         Forms\Components\Toggle::make('converted')
-                                            ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord),
+                                            ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
                                     ])
                                     ->columnSpan(12)
                             ])
