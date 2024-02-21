@@ -58,13 +58,22 @@ class EditProduct extends EditRecord
     {
         if ((isset($_GET['type']) && $_GET['type'] == "quote")) {
             return [
-                '/admin/quotes/'.$this->record->quote->id.'/edit?type=quote&activeRelationManager=0' => 'Quotes',
-                '/admin/products/'.$this->record->id.'/edit?type=quote' => $this->record->name,
+                '/admin/quotes' => 'Quotes',
+                '/admin/quotes/'.$this->record->quote->id.'/edit' => $this->record->quote->reference,
+                '/admin/quotes/'.$this->record->quote->id.'/edit?activeRelationManager=0' => 'Products',
+                '#' => $this->record->name,
+            ];
+        } elseif ((isset($_GET['type']) && $_GET['type'] == "simulation")) {
+            return [
+                '/admin/simulations' => 'Simulations',
+                '/admin/simulations/'.$this->record->quote->id.'/edit' => $this->record->quote->id,
+                '/admin/simulations/'.$this->record->quote->id.'/edit?activeRelationManager=0' => 'Products',
+                '#' => $this->record->name,
             ];
         } else {
             return [
                 '/admin/products' => 'Products',
-                '/admin/products/'.$this->record->id.'/edit' => $this->record->name,
+                '#' => 'Edit',
             ];
         }
     }

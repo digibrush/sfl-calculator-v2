@@ -26,10 +26,32 @@ class ProductsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-            ]);
+                Forms\Components\Card::make()
+                    ->schema([
+                        Forms\Components\Fieldset::make('basics')
+                            ->label('Basics')
+                            ->schema([
+                                Forms\Components\Grid::make(12)
+                                    ->schema([
+                                        Forms\Components\Hidden::make('type')
+                                            ->default('simulation'),
+                                        Forms\Components\TextInput::make('name')
+                                            ->required()
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\Textarea::make('overview')
+                                            ->required()
+                                            ->maxLength(255)
+                                            ->columnSpan(12),
+                                        Forms\Components\Toggle::make('status')
+                                    ])
+                                    ->columnSpan(12)
+                            ])
+                            ->columnSpan(12),
+                    ])
+                    ->columnSpan(12),
+            ])
+            ->columns(12);
     }
 
     public static function table(Table $table): Table

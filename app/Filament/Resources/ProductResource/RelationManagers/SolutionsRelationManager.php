@@ -10,12 +10,31 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class SolutionsRelationManager extends RelationManager
 {
     protected static string $relationship = 'solutions';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public function canCreate(): bool
+    {
+        if ($this->ownerRecord->quote != null) {
+            return Auth::user()->can('Create Solutions In Quotes');
+        }
+        return Auth::user()->can('Create Solutions');
+    }
+
+    public function canDelete(Model $record): bool
+    {
+        if ($this->ownerRecord->quote != null) {
+            return Auth::user()->can('Delete Solutions In Quotes');
+        }
+        return Auth::user()->can('Delete Solutions');
+    }
 
     protected function getTableRecordUrlUsing(): ?Closure
     {
@@ -52,7 +71,7 @@ class SolutionsRelationManager extends RelationManager
                                 Forms\Components\Grid::make(12)
                                     ->schema([
                                         Forms\Components\Hidden::make('type')
-                                            ->default(fn(RelationManager $livewire): string => ((!is_null($livewire->ownerRecord->quote)) ? 'quote' : 'standard')),
+                                            ->default(fn(RelationManager $livewire): string => ((!is_null($livewire->ownerRecord->quote)) ? ($livewire->ownerRecord->quote->type == "standard") ? 'quote' : (($livewire->ownerRecord->quote->type == "simulation") ? 'simulation' : 'template') : 'standard')),
                                         Forms\Components\TextInput::make('name')
                                             ->required()
                                             ->maxLength(255)
@@ -115,7 +134,7 @@ class SolutionsRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? 'type=quote&' : '').'activeRelationManager=0'),
+                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? ($record->product->quote->type == "standard") ? 'type=quote&' : (($record->product->quote->type == "simulation") ? 'type=simulation&' : 'type=template&') : '').'activeRelationManager=0'),
             ])
             ->actions([
                 Tables\Actions\Action::make('edit-product-solution')
@@ -139,7 +158,7 @@ class SolutionsRelationManager extends RelationManager
                     ->url(fn (Solution $record): string => url('/admin/solutions/'.$record->id.'/edit?type=template&activeRelationManager=0'))
                     ->icon('heroicon-s-pencil'),
                 Tables\Actions\DeleteAction::make()
-                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? 'type=quote&' : '').'activeRelationManager=0'),
+                    ->successRedirectUrl(fn (Solution $record): string => '/admin/products/'.$record->product->id.'/edit?'.((!is_null($record->product->quote)) ? ($record->product->quote->type == "standard") ? 'type=quote&' : (($record->product->quote->type == "simulation") ? 'type=simulation&' : 'type=template&') : '').'activeRelationManager=0'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

@@ -27,7 +27,7 @@ class EditProject extends EditRecord
                 ->label('Back To Simulation')
                 ->hidden(fn(): bool => ($this->record->solution->product->quote != null && $this->record->solution->product->quote->type == "simulation") ? false : true)
                 ->color('secondary')
-                ->url(($this->record->solution->product->quote != null && $this->record->solution->product->quote->type == "simulation") ?? url('/admin/simulations/'.$this->record->solution->product->quote->id.'/configurator')),
+                ->url(url('/admin/simulations/'.$this->record->solution->product->quote->id.'/configurator')),
             Actions\Action::make('back_template')
                 ->label('Back')
                 ->hidden(fn(): bool => ($this->record->solution->product->quote != null && $this->record->solution->product->quote->type == "template") ? false : true)
@@ -61,17 +61,34 @@ class EditProject extends EditRecord
     {
         if ((isset($_GET['type']) && $_GET['type'] == "quote")) {
         	return [
-                '/admin/quotes/'.$this->record->solution->product->quote->id.'/edit?type=quote&activeRelationManager=0' => 'Quotes',
-            	'/admin/products/'.$this->record->solution->product->id.'/edit?type=quote&activeRelationManager=0' => $this->record->solution->product->name,
-            	'/admin/solutions/'.$this->record->solution->id.'/edit?type=quote&activeRelationManager=0' => $this->record->solution->name,
-            	'/admin/projects/'.$this->record->id.'/edit?type=quote' => $this->record->name,
+                '/admin/quotes' => 'Quotes',
+                '/admin/quotes/'.$this->record->solution->product->quote->id.'/edit' => $this->record->solution->product->quote->reference,
+                '/admin/quotes/'.$this->record->solution->product->quote->id.'/edit?activeRelationManager=0' => 'Products',
+            	'/admin/products/'.$this->record->solution->product->id.'/edit?type=quote' => $this->record->solution->product->name,
+                '/admin/products/'.$this->record->solution->product->id.'/edit?type=quote&activeRelationManager=0' => 'Solutions',
+            	'/admin/solutions/'.$this->record->solution->id.'/edit?type=quote' => $this->record->solution->name,
+                '/admin/solutions/'.$this->record->solution->id.'/edit?type=quote&activeRelationManager=0' => 'Projects',
+            	'#' => $this->record->name,
         	];
+        } elseif ((isset($_GET['type']) && $_GET['type'] == "simulation")) {
+            return [
+                '/admin/simulations' => 'Simulations',
+                '/admin/simulations/'.$this->record->solution->product->quote->id.'/edit' => $this->record->solution->product->quote->id,
+                '/admin/simulations/'.$this->record->solution->product->quote->id.'/edit?activeRelationManager=0' => 'Products',
+                '/admin/products/'.$this->record->solution->product->id.'/edit?type=simulation' => $this->record->solution->product->name,
+                '/admin/products/'.$this->record->solution->product->id.'/edit?type=simulation&activeRelationManager=0' => 'Solutions',
+                '/admin/solutions/'.$this->record->solution->id.'/edit?type=simulation' => $this->record->solution->name,
+                '/admin/solutions/'.$this->record->solution->id.'/edit?type=simulation&activeRelationManager=0' => 'Projects',
+                '#' => $this->record->name,
+            ];
         } else {
         	return [
             	'/admin/products' => 'Products',
-            	'/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => $this->record->solution->product->name,
-            	'/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => $this->record->solution->name,
-            	'/admin/projects/'.$this->record->id.'/edit' => $this->record->name,
+            	'/admin/products/'.$this->record->solution->product->id.'/edit' => $this->record->solution->product->name,
+                '/admin/products/'.$this->record->solution->product->id.'/edit?activeRelationManager=0' => 'Solutions',
+                '/admin/solutions/'.$this->record->solution->id.'/edit' => $this->record->solution->name,
+            	'/admin/solutions/'.$this->record->solution->id.'/edit?activeRelationManager=0' => 'Projects',
+            	'#' => $this->record->name,
         	];
         }
     }

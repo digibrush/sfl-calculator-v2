@@ -371,7 +371,7 @@
             Consultation</h1>
     </div>
     <hr style="color: rgba(241,241,241,0.82); margin-left: 5%; margin-right: 65%;">
-    <div style="padding-top: 100px; padding-left: 180px; width: 400px; display: flex; align-items: center">
+    <div style="padding-top: 90px; padding-left: 180px; width: 400px; display: flex; align-items: center">
         <table>
             <tr style="display: flex; align-items: center">
                 <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
@@ -386,6 +386,16 @@
             <tr>
                 <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
                     Quotation {{ $quote->reference }}
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
+                    {{ (($quote->enquiry != null)) ?  'Enquiry '.$quote->enquiry : '' }}
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
+                    Valid Till {{ $quote->expires_at }}
                 </td>
             </tr>
         </table>

@@ -88,6 +88,7 @@ class QuoteObserver
         });
 
         $quote->reference = str_pad($quote->id, 8, "0", STR_PAD_LEFT);
+        $quote->expires_at = now()->addDays($quote->validity_upto);
         $quote->saveQuietly();
     }
 
@@ -123,6 +124,9 @@ class QuoteObserver
                 }
             }
         }
+
+        $quote->expires_at = now()->addDays($quote->validity_upto);
+        $quote->saveQuietly();
     }
 
     /**

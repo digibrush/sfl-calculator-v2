@@ -19,7 +19,11 @@ use Database\Seeders\Migration\MigrationQuoteSeeder;
 use Database\Seeders\Migration\MigrationRatesSeeder;
 use Database\Seeders\Migration\MigrationRegionSeeder;
 use Database\Seeders\Migration\MigrationTermsSeeder;
+use Database\Seeders\Production\ProjectsPermissions;
 use Database\Seeders\Production\QuoteProjectsHoursEditPermission;
+use Database\Seeders\Production\QuotesProjectsPermissions;
+use Database\Seeders\Production\QuotesSolutionsPermissions;
+use Database\Seeders\Production\SolutionsPermissions;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,7 +33,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(RatesSeeder::class);
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call(DevelopmentPersonnelSeeder::class);
         $this->call(DevelopmentProductsSeeder::class);
@@ -44,6 +47,10 @@ class DatabaseSeeder extends Seeder
 //        $this->call(MigrationRatesSeeder::class);
 //        $this->call(MigrationProductsSeeder::class);
 //        $this->call(MigrationClientsSeeder::class);
-        $this->call(QuoteProjectsHoursEditPermission::class);
+//        $this->call(QuoteProjectsHoursEditPermission::class);
+        $this->call(SolutionsPermissions::class);
+        $this->call(ProjectsPermissions::class);
+        $this->call(QuotesSolutionsPermissions::class);
+        $this->call(QuotesProjectsPermissions::class);
     }
 }

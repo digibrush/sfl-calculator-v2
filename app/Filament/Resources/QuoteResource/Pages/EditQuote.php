@@ -47,4 +47,12 @@ class EditQuote extends EditRecord
     {
         return 'Quote';
     }
+
+    protected function getBreadcrumbs(): array
+    {
+        return [
+            '/admin/quotes' => 'Quotes',
+            '#' => $this->record->reference,
+        ];
+    }
 }

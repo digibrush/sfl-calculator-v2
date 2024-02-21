@@ -19,9 +19,7 @@ class ProjectFactory extends Factory
         return [
             'name' => fake()->words($nb = 3, $asText = true),
             'price_category' => fake()->randomElement($array = array ('standard','branch','country')),
-            'price_tier' => fake()->randomElement($array = array ('standard','premium')),
-            'online_hours' => fake()->numberBetween($min = 5, $max = 50),
-            'offline_hours' => fake()->numberBetween($min = 5, $max = 50),
+            'hours' => fake()->numberBetween($min = 5, $max = 50),
             'status' => fake()->randomElement($array = array (true,false)),
         ];
     }
