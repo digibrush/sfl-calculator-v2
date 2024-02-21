@@ -27,9 +27,14 @@ class UserResource extends Resource
 
     protected static ?int $navigationSort = 10;
 
-    public static function canViewAny(): bool
+    protected static function shouldRegisterNavigation(): bool
     {
         return Auth::user()->can('Access Users');
+    }
+
+    public static function canViewAny(): bool
+    {
+        return (Auth::user()->can('Access Users') || Auth::user()->can('Edit Users'));
     }
 
     public static function canCreate(): bool
@@ -39,7 +44,15 @@ class UserResource extends Resource
 
     public static function canEdit(Model $record): bool
     {
-        return Auth::user()->can('Edit Users');
+        if (Auth::user()->can('Access Users')) {
+            return Auth::user()->can('Edit Users');
+        }
+        if (Auth::user()->can('Edit Users') && !Auth::user()->can('Access Users')) {
+            if (Auth::id() == $record->id) {
+                return Auth::user()->can('Edit Users');
+            }
+        }
+        return false;
     }
 
     public static function canDelete(Model $record): bool
@@ -58,25 +71,6 @@ class UserResource extends Resource
                     ->label('Email')
                     ->columnSpan('full')
                     ->required(),
-                Forms\Components\Select::make('discount')
-                    ->multiple()
-                    ->options(Region::all()->pluck('name', 'id'))
-                    ->columnSpan('full')
-                    ->required(),
-//                Forms\Components\TextInput::make('discount')
-//                    ->label('Discount')
-//                    ->numeric()
-//                    ->mask(fn (Forms\Components\TextInput\Mask $mask) => $mask
-//                        ->numeric()
-//                        ->decimalPlaces(2) // Set the number of digits after the decimal point.
-//                        ->decimalSeparator('.') // Add a separator for decimal numbers.
-//                        ->minValue(0) // Set the minimum value that the number can be.
-//                        ->normalizeZeros() // Append or remove zeros at the end of the number.
-//                        ->padFractionalZeros() // Pad zeros at the end of the number to always maintain the maximum number of decimal places.
-//                        ->thousandsSeparator(',') // Add a separator for thousands.
-//                    )
-//                    ->columnSpan('full')
-//                    ->required(),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
