@@ -314,7 +314,7 @@
         <h1 style="padding-left: 50px; color: #0C283C; font-size: 36px; font-weight: 500">Cargowise One Consultation</h1>
     </div>
     <hr style="color: rgba(241,241,241,0.82); margin-left: 5%; margin-right: 65%;">
-    <div style="padding-top: 100px; padding-left: 180px; width: 400px; display: flex; align-items: center">
+    <div style="padding-top: 90px; padding-left: 180px; width: 400px; display: flex; align-items: center">
         <table>
             <tr style="display: flex; align-items: center">
                 <td style="color: #0C283C; font-weight: 300; font-size: 25px; text-align: center;">
