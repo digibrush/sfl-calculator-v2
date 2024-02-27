@@ -14,7 +14,7 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::redirect('/','/admin/login');
+Route::redirect('/','/admin/login')->name('login');
 Route::redirect('/login','/admin/login');
 
 Route::get('/testing', 'App\Http\Controllers\TestController@test');

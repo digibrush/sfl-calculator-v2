@@ -27,7 +27,7 @@ class EditProject extends EditRecord
                 ->label('Back To Simulation')
                 ->hidden(fn(): bool => ($this->record->solution->product->quote != null && $this->record->solution->product->quote->type == "simulation") ? false : true)
                 ->color('secondary')
-                ->url(url('/admin/simulations/'.$this->record->solution->product->quote->id.'/configurator')),
+                ->url(url('/admin/simulations/'.($this->record->solution->product->quote != null && $this->record->solution->product->quote->type == "simulation") ?? $this->record->solution->product->quote->id.'/configurator')),
             Actions\Action::make('back_template')
                 ->label('Back')
                 ->hidden(fn(): bool => ($this->record->solution->product->quote != null && $this->record->solution->product->quote->type == "template") ? false : true)

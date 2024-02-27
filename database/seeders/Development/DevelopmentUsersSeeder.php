@@ -18,12 +18,11 @@ class DevelopmentUsersSeeder extends Seeder
         ]);
         $staff->assignRole(['System Administrator']);
 
-//        $client = \App\Models\User::factory()->create([
-//            'type' => 'client',
-//            'name' => 'John Doe',
-//            'email' => 'john.doe@example.com'
-//        ]);
-//        $client->company()->associate(Company::find(1));
-//        $client->save();
+        $staff = \App\Models\User::factory()->create([
+            'type' => 'staff',
+            'name' => 'Reporting Manager',
+            'email' => 'reporting+manager@digibrush.net'
+        ]);
+        $staff->assignRole(['System Administrator']);
     }
 }

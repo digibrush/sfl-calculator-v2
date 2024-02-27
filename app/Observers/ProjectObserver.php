@@ -2,6 +2,8 @@
 
 namespace App\Observers;
 
+use App\Jobs\CalculateProjectTotals;
+use App\Jobs\CalculateSolutionTotals;
 use App\Models\Project;
 use App\Models\Rate;
 use App\Models\Solution;
@@ -15,33 +17,7 @@ class ProjectObserver
     {
         $project = Project::findOrFail($project->id);
 
-        $hours = $project->hours;
-
-        $rate = (is_null($project->personnel)) ? 0.00 : $project->personnel->rate;
-        $cost = $hours * $rate;
-
-        $project->hours = $hours;
-        $project->cost = $cost;
-        $project->saveQuietly();
-
-        $countries = $project->countries;
-        $branches = $project->branches;
-
-        if ($project->price_category == "country") {
-            $hours = $hours * $countries;
-            $cost = $cost * $countries;
-        }
-
-        if ($project->price_category == "branch") {
-            $hours = $hours * $branches;
-            $cost = $cost * $branches;
-        }
-
-        $project->update([
-            'total_hours' => $hours,
-            'total_cost' => $cost,
-            'rate' => $rate,
-        ]);
+        CalculateProjectTotals::dispatch($project);
     }
 
     /**
@@ -51,48 +27,7 @@ class ProjectObserver
     {
         $project = Project::findOrFail($project->id);
 
-        if ($project->solution != null) {
-            $countries = $project->countries;
-            $branches = $project->branches;
-
-            $hours = $project->hours;
-
-            $rate = (is_null($project->personnel)) ? 0.00 : $project->personnel->rate;
-            $cost = $hours * $rate;
-
-            $project->hours = $hours;
-            $project->cost = $cost;
-            $project->saveQuietly();
-
-            if ($project->price_category == "country") {
-                $hours = $hours * $countries;
-                $cost = $cost * $countries;
-            }
-
-            if ($project->price_category == "branch") {
-                $hours = $hours * $branches;
-                $cost = $cost * $branches;
-            }
-
-            $project->total_hours = $hours;
-            $project->total_cost = $cost;
-            $project->rate = $rate;
-            $project->saveQuietly();
-        }
-
-        if ($project->solution != null) {
-            $solution = Solution::findOrFail($project->solution->id);
-
-            $total_hours = $solution->projects()->where('status', true)->sum('total_hours');
-            $total_cost = $solution->projects()->where('status', true)->sum('total_cost');
-            $total_projects = $solution->projects()->where('status', true)->count();
-
-            $solution->update([
-                'hours' => $total_hours,
-                'cost' => $total_cost,
-                'projects' => $total_projects
-            ]);
-        }
+        CalculateProjectTotals::dispatch($project);
     }
 
     /**
@@ -103,15 +38,7 @@ class ProjectObserver
         if ($project->solution != null) {
             $solution = Solution::findOrFail($project->solution->id);
 
-            $total_hours = $solution->projects()->where('status', true)->sum('total_hours');
-            $total_cost = $solution->projects()->where('status', true)->sum('total_cost');
-            $total_projects = $solution->projects()->where('status', true)->count();
-
-            $solution->update([
-                'hours' => $total_hours,
-                'cost' => $total_cost,
-                'projects' => $total_projects
-            ]);
+            CalculateSolutionTotals::dispatch($solution);
         }
     }
 

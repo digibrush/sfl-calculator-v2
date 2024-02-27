@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Jobs\CalculateProjectTotals;
+use App\Jobs\CalculateQuoteTotals;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Quote;
@@ -90,6 +91,11 @@ class QuoteObserver
         $quote->reference = str_pad($quote->id, 8, "0", STR_PAD_LEFT);
         $quote->expires_at = now()->addDays($quote->validity_upto);
         $quote->saveQuietly();
+        CalculateQuoteTotals::dispatch($quote);
+
+        if ($quote->discount_override > 0) {
+            dd('test');
+        }
     }
 
     /**
@@ -98,16 +104,8 @@ class QuoteObserver
     public function updated(Quote $quote): void
     {
         $quote = Quote::find($quote->id);
-        $grossTotal = $quote->cost;
-        $discountAmount = ($grossTotal * $quote->discount)/100;
-        $netTotal = (float) ($grossTotal - $discountAmount);
 
-        if ((float)round((float)$quote->total_cost,2) != (float)round((float)$netTotal,2) ||
-            (float)round((float)$quote->discount_amount,2) != (float)round((float)$discountAmount,2)) {
-            $quote->total_cost = $netTotal;
-            $quote->discount_amount = $discountAmount;
-            $quote->saveQuietly();
-        }
+        CalculateQuoteTotals::dispatch($quote);
 
         foreach ($quote->products as $product) {
             foreach ($product->solutions()->get() as $solution) {

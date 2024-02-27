@@ -85,6 +85,10 @@ class StaffResource extends Resource
                                             ->relationship('occupation', 'name')
                                             ->required()
                                             ->columnSpan(12),
+                                        Forms\Components\Select::make('reportingManager')
+                                            ->label('Reporting Manager')
+                                            ->relationship('reportingManager', 'name', fn (Builder $query) => $query->where('type','staff'))
+                                            ->columnSpan(12),
                                     ])
                                     ->columnSpan(12)
                             ])
@@ -121,7 +125,6 @@ class StaffResource extends Resource
                     ])
                     ->columnSpan(7),
                 Forms\Components\Card::make()
-                    ->hidden(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
                     ->schema([
                         Forms\Components\Fieldset::make('discount')
                             ->label('Discount')
@@ -133,6 +136,7 @@ class StaffResource extends Resource
                                             ->inline()
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('discount_rate')
+                                            ->default(0.00)
                                             ->label('Allowed Maximum Discount')
                                             ->disabled()
                                             ->columnSpan(12),

@@ -174,5 +174,25 @@ class RolesAndPermissionsSeeder extends Seeder
         $permission->assignRole($system_administrator);
         $permission = Permission::create(['name' => 'Discount upto -50']);
         $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -55']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -60']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -65']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -70']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -75']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -80']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -85']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -90']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -95']);
+        $permission->assignRole($system_administrator);
+        $permission = Permission::create(['name' => 'Discount upto -100']);
+        $permission->assignRole($system_administrator);
     }
 }

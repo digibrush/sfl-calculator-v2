@@ -244,6 +244,17 @@ class RoleResource extends Resource
                                                     ->columnSpan(12),
                                             ])
                                             ->columnSpan(4),
+                                        Forms\Components\Fieldset::make('discounts')
+                                            ->label('Discounts')
+                                            ->schema([
+                                                Forms\Components\CheckboxList::make('permissions')
+                                                    ->label('')
+                                                    ->bulkToggleable(true)
+                                                    ->required()
+                                                    ->relationship('permissions','name', fn (Builder $query) => $query->where('name','LIKE','Discount%')->orderBy('id'))
+                                                    ->columnSpan(12),
+                                            ])
+                                            ->columnSpan(4),
                                     ]),
                             ])
                             ->columnSpan(12),

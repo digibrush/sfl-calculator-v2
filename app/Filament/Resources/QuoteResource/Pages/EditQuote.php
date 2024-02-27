@@ -4,9 +4,11 @@ namespace App\Filament\Resources\QuoteResource\Pages;
 
 use App\Filament\Resources\QuoteResource;
 use App\Jobs\SendAssignmentEmail;
+use App\Models\Quote;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Pages\Actions;
+use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -35,6 +37,31 @@ class EditQuote extends EditRecord
                         ->required(),
                 ]),
             Actions\DeleteAction::make(),
+        ];
+    }
+
+    protected function getFormActions(): array
+    {
+        return [
+            Action::make('save')
+                ->label('Save Changes')
+                ->submit()
+                ->action(function () {
+                    $quote = $this->record;
+
+                    $grossTotal = $quote->cost;
+                    $discountAmount = (float) round(($grossTotal * (int)$this->all()['data']['discount'])/100,2);
+                    $netTotal = (float) round(($grossTotal - $discountAmount),2);
+                    $quote->total_cost = $netTotal;
+                    $quote->discount_amount = $discountAmount;
+
+                    $quote->saveQuietly();
+
+                    $this->refreshFormData([
+                        'discount_amount',
+                        'total_cost'
+                    ]);
+                })
         ];
     }
 

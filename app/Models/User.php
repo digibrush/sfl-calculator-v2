@@ -116,4 +116,24 @@ class User extends Authenticatable implements Auditable,FilamentUser
     {
         return $this->belongsTo(Occupation::class);
     }
+
+    /**
+     * Reporting Manager relationship
+     *
+     * A user belongs to a reporting manager
+     */
+    public function reportingManager()
+    {
+        return $this->belongsTo(User::class,'reporting_manager');
+    }
+
+    /**
+     * Subordinate relationship
+     *
+     * A user (reporting manager) has many subordinates
+     */
+    public function subordinates()
+    {
+        return $this->hasMany(User::class,'reporting_manager');
+    }
 }

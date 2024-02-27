@@ -29,6 +29,8 @@ class Quote extends Model implements Auditable
         'cost',
         'discount',
         'discount_note',
+        'discount_override',
+        'discount_override_note',
         'discount_amount',
         'total_cost',
         'validity_upto',
@@ -58,6 +60,8 @@ class Quote extends Model implements Auditable
         'cost',
         'discount',
         'discount_note',
+        'discount_override',
+        'discount_override_note',
         'discount_amount',
         'total_cost',
         'validity_upto',
@@ -132,5 +136,15 @@ class Quote extends Model implements Auditable
     public function emails()
     {
         return $this->hasMany(Email::class);
+    }
+
+    /**
+     * Request Relationship
+     *
+     * A quote has many requests
+     */
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
     }
 }

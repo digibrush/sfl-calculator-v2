@@ -55,15 +55,6 @@ class QuoteResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $max = 0;
-        $regions = (new Region)->newCollection();
-        if (Auth::user()->discount != null) {
-            foreach (Auth::user()->discount as $discount) {
-                $region = Region::findOrFail($discount);
-                $regions->add($region);
-            }
-            $max = $regions->toQuery()->orderBy('discount', 'DESC')->first()->discount;
-        }
         return $form
             ->schema([
                 Forms\Components\Card::make()
@@ -150,9 +141,18 @@ class QuoteResource extends Resource
                                         Forms\Components\TextInput::make('discount')
                                             ->default(0)
                                             ->numeric()
-                                            ->maxValue($max)
+                                            ->maxValue(Auth::user()->discount_rate)
                                             ->columnSpan(12),
                                         Forms\Components\Textarea::make('discount_note')
+                                            ->columnSpan(12),
+                                        Forms\Components\TextInput::make('discount_override')
+                                            ->label('Override Maximum Discount')
+                                            ->default(0)
+                                            ->numeric()
+                                            ->maxValue(Auth::user()->reportingManager->discount_rate)
+                                            ->columnSpan(12),
+                                        Forms\Components\Textarea::make('discount_override_note')
+                                            ->label('Reason for Discount Override')
                                             ->columnSpan(12),
                                     ])
                                     ->columnSpan(12)

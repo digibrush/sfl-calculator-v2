@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\CalculateUserMaximumDiscountAllowed;
 use App\Models\User;
 
 class UserObserver
@@ -11,11 +12,13 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        if ($user->occupation != null) {
-            $user = User::find($user->id);
-            $user->discount_rate = $user->occupation->discount;
-            $user->saveQuietly();
-        }
+        $user = User::with(['permissions', 'roles'])->where('id',$user->id)->first();
+        CalculateUserMaximumDiscountAllowed::dispatch($user);
+//        if ($user->occupation != null) {
+//            $user = User::find($user->id);
+//            $user->discount_rate = $user->occupation->discount;
+//            $user->saveQuietly();
+//        }
     }
 
     /**
@@ -23,11 +26,13 @@ class UserObserver
      */
     public function updated(User $user): void
     {
-        if ($user->occupation != null) {
-            $user = User::find($user->id);
-            $user->discount_rate = $user->occupation->discount;
-            $user->saveQuietly();
-        }
+        $user = User::with(['permissions', 'roles'])->where('id',$user->id)->first();
+        CalculateUserMaximumDiscountAllowed::dispatch($user);
+//        if ($user->occupation != null) {
+//            $user = User::find($user->id);
+//            $user->discount_rate = $user->occupation->discount;
+//            $user->saveQuietly();
+//        }
     }
 
     /**
