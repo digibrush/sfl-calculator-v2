@@ -27,4 +27,14 @@ class Region extends Model
     protected $casts = [
         'discount' => 'float',
     ];
+
+    /**
+     * Quote Relationship
+     *
+     * A region has many quotes
+     */
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class);
+    }
 }
