@@ -8,7 +8,9 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\Quote;
 use App\Models\Rate;
+use App\Models\Request;
 use App\Models\Solution;
+use Illuminate\Support\Facades\Auth;
 
 class QuoteObserver
 {
@@ -93,8 +95,20 @@ class QuoteObserver
         $quote->saveQuietly();
         CalculateQuoteTotals::dispatch($quote);
 
+        $quote = Quote::findOrFail($quote->id);
+
         if ($quote->discount_override > 0) {
-            dd('test');
+            $request = Request::create([
+                'data' => [
+                    [
+                        'discount_overrride' => $quote->discount_overrride,
+                        'discount_overrride_note' => $quote->discount_overrride_note
+                    ]
+                ]
+            ]);
+            $request->quote()->associate($quote);
+            $request->user()->associate(Auth::user()->reportingManager);
+            $request->save();
         }
     }
 
@@ -125,6 +139,20 @@ class QuoteObserver
 
         $quote->expires_at = now()->addDays($quote->validity_upto);
         $quote->saveQuietly();
+
+        if ($quote->discount_override > 0) {
+            $request = Request::create([
+                'data' => [
+                    [
+                        'discount_overrride' => $quote->discount_override,
+                        'discount_overrride_note' => $quote->discount_override_note
+                    ]
+                ]
+            ]);
+            $request->quote()->associate($quote);
+            $request->user()->associate(Auth::user()->reportingManager);
+            $request->save();
+        }
     }
 
     /**

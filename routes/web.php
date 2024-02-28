@@ -32,3 +32,6 @@ Route::get('/simulator/simulations/{id}/deselect-all', 'App\Http\Controllers\Sim
 Route::get('/simulator/products/{id}/select', 'App\Http\Controllers\SimulatorController@selectProduct');
 Route::get('/simulator/solutions/{id}/select', 'App\Http\Controllers\SimulatorController@selectSolution');
 Route::get('/simulator/projects/{id}/select', 'App\Http\Controllers\SimulatorController@selectProject');
+
+Route::get('/request/{id}/approve', 'App\Http\Controllers\RequestController@approve')->name('request.approve');
+Route::get('/request/{id}/reject', 'App\Http\Controllers\RequestController@reject')->name('request.reject');

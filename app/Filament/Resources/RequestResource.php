@@ -19,6 +19,20 @@ class RequestResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationGroup = 'Quote Management';
+
+    protected static ?int $navigationSort = 6;
+
+    protected static function getNavigationBadge(): ?string
+    {
+        return Request::where('status','pending')->count();
+    }
+
+    protected static function getNavigationBadgeColor(): ?string
+    {
+        return 'danger';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -27,9 +41,11 @@ class RequestResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('discount_overrride')
                             ->required()
+                            ->disabled()
                             ->columnSpan(12),
                         Forms\Components\Textarea::make('discount_overrride_note')
                             ->required()
+                            ->disabled()
                             ->columnSpan(12),
                     ])
                     ->disableItemCreation()
@@ -43,16 +59,51 @@ class RequestResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Assignee'),
+                Tables\Columns\TextColumn::make('quote.reference')
+                    ->searchable(),
+                Tables\Columns\BadgeColumn::make('type')
+                    ->enum([
+                        'discount_override' => 'Discount Override',
+                    ])
+                    ->colors([
+                        'primary',
+                        'secondary' => 'discount_override',
+                    ]),
+                Tables\Columns\BadgeColumn::make('status')
+                    ->enum([
+                        'pending' => 'Pending',
+                        'approved' => 'Approved',
+                        'rejected' => 'Rejected',
+                    ])
+                    ->colors([
+                        'primary',
+                        'warning' => 'pending',
+                        'success' => 'approved',
+                        'danger' => 'rejected',
+                    ]),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('type')
+                    ->options([
+                        'discount_override' => 'Discount Override',
+                    ]),
+                Tables\Filters\SelectFilter::make('status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'approved' => 'Approved',
+                        'rejected' => 'Rejected',
+                    ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                //
             ]);
     }
 

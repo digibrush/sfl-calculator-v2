@@ -5,6 +5,7 @@ namespace App\Filament\Resources\RequestResource\Pages;
 use App\Filament\Resources\RequestResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Resources\Components\Tab;
 
 class ListRequests extends ListRecords
 {
@@ -13,7 +14,7 @@ class ListRequests extends ListRecords
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            //
         ];
     }
 }

@@ -17,6 +17,7 @@ class Request extends Model
     protected $fillable = [
         'type',
         'data',
+        'status',
     ];
 
     /**
@@ -31,10 +32,20 @@ class Request extends Model
     /**
      * Quote relationship
      *
-     * A product belongs to a quote
+     * A request belongs to a quote
      */
     public function quote()
     {
         return $this->belongsTo(Quote::class);
+    }
+
+    /**
+     * User relationship
+     *
+     * A request belongs to a user
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

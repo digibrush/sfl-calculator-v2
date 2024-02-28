@@ -136,4 +136,14 @@ class User extends Authenticatable implements Auditable,FilamentUser
     {
         return $this->hasMany(User::class,'reporting_manager');
     }
+
+    /**
+     * Requests relationship
+     *
+     * A user has many requests
+     */
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
+    }
 }

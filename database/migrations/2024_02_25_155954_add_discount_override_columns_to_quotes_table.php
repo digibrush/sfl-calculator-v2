@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('quotes', function (Blueprint $table) {
             $table->float('discount_override')->default(0.00)->after('discount_note');
-            $table->text('discount_override_note')->nullable()->after('discount_override_note');
+            $table->text('discount_override_note')->nullable()->after('discount_override');
         });
     }
 

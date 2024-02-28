@@ -83,6 +83,7 @@ class Quote extends Model implements Auditable
         'branches' => 'integer',
         'cost' => 'float',
         'discount_amount' => 'float',
+        'discount_override' => 'float',
         'total_cost' => 'float',
         'validity_upto' => 'integer',
         'converted' => 'boolean',

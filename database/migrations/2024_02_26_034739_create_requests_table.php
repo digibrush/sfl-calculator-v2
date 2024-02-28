@@ -17,6 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('quote_id')->nullable();
             $table->foreign('quote_id')->references('id')->on('quotes')->onDelete('cascade');
 
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->enum('type', ['discount_override'])->default('discount_override');
 
             $table->json('data')->nullable();
