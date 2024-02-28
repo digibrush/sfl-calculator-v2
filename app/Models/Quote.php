@@ -133,4 +133,14 @@ class Quote extends Model implements Auditable
     {
         return $this->hasMany(Email::class);
     }
+
+    /**
+     * Region relationship
+     *
+     * A quote belongs to a region
+     */
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 }
