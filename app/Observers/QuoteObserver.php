@@ -141,17 +141,19 @@ class QuoteObserver
         $quote->saveQuietly();
 
         if ($quote->discount_override > 0) {
-            $request = Request::create([
-                'data' => [
-                    [
-                        'discount_overrride' => $quote->discount_override,
-                        'discount_overrride_note' => $quote->discount_override_note
+            if ($quote->requests->where('status', 'pending')->first() == null) {
+                $request = Request::create([
+                    'data' => [
+                        [
+                            'discount_overrride' => $quote->discount_override,
+                            'discount_overrride_note' => $quote->discount_override_note
+                        ]
                     ]
-                ]
-            ]);
-            $request->quote()->associate($quote);
-            $request->user()->associate(Auth::user()->reportingManager);
-            $request->save();
+                ]);
+                $request->quote()->associate($quote);
+                $request->user()->associate(Auth::user()->reportingManager);
+                $request->save();
+            }
         }
     }
 

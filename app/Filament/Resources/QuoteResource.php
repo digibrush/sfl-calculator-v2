@@ -134,7 +134,7 @@ class QuoteResource extends Resource
                             ->columnSpan(12),
                         Forms\Components\Fieldset::make('discount')
                             ->label('Discount')
-                            ->hidden(fn(Page $livewire): bool => !Auth::user()->discount_allowed)
+                            ->hidden(fn(Page $livewire): bool => !Auth::user()->can('Allow To Add Discounts'))
                             ->schema([
                                 Forms\Components\Grid::make(12)
                                     ->schema([

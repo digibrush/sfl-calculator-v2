@@ -80,11 +80,6 @@ class StaffResource extends Resource
                                             ->label('Email')
                                             ->columnSpan(12)
                                             ->required(),
-                                        Forms\Components\Select::make('occupation')
-                                            ->label('Job Role')
-                                            ->relationship('occupation', 'name')
-                                            ->required()
-                                            ->columnSpan(12),
                                         Forms\Components\Select::make('reportingManager')
                                             ->label('Reporting Manager')
                                             ->relationship('reportingManager', 'name', fn (Builder $query) => $query->where('type','staff'))
@@ -131,15 +126,20 @@ class StaffResource extends Resource
                             ->schema([
                                 Forms\Components\Grid::make(12)
                                     ->schema([
-                                        Forms\Components\Toggle::make('discount_allowed')
-                                            ->label('Allowed to add Discounts')
-                                            ->inline()
-                                            ->columnSpan(12),
                                         Forms\Components\TextInput::make('discount_rate')
                                             ->default(0.00)
                                             ->label('Allowed Maximum Discount')
                                             ->disabled()
                                             ->columnSpan(12),
+                                    ])
+                                    ->columnSpan(12),
+                            ])
+                            ->columnSpan(12),
+                        Forms\Components\Fieldset::make('settings')
+                            ->label('Settings')
+                            ->schema([
+                                Forms\Components\Grid::make(12)
+                                    ->schema([
                                         Forms\Components\Select::make('discount')
                                             ->label('Regions')
                                             ->multiple()

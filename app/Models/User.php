@@ -29,7 +29,6 @@ class User extends Authenticatable implements Auditable,FilamentUser
         'name',
         'email',
         'password',
-        'discount_allowed',
         'discount_rate',
         'discount',
     ];
@@ -44,7 +43,6 @@ class User extends Authenticatable implements Auditable,FilamentUser
         'name',
         'email',
         'password',
-        'discount_allowed',
         'discount_rate',
         'discount',
     ];
@@ -67,7 +65,6 @@ class User extends Authenticatable implements Auditable,FilamentUser
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'discount_allowed' => 'boolean',
         'discount_rate' => 'float',
         'discount' => 'array',
     ];
@@ -105,16 +102,6 @@ class User extends Authenticatable implements Auditable,FilamentUser
     public function assigneeQuotes()
     {
         return $this->hasMany(Quote::class, 'assignee_id');
-    }
-
-    /**
-     * Occupation relationship
-     *
-     * A user belongs to a occupation
-     */
-    public function occupation()
-    {
-        return $this->belongsTo(Occupation::class);
     }
 
     /**
