@@ -23,6 +23,7 @@ use Database\Seeders\Production\QuoteProjectsHoursEditPermission;
 use Database\Seeders\Production\QuotesProjectsPermissions;
 use Database\Seeders\Production\QuotesSolutionsPermissions;
 use Database\Seeders\Production\SolutionsPermissions;
+use Database\Seeders\Production\ViewQuotesFromAllRegionsPermission;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,23 +33,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(RolesAndPermissionsSeeder::class);
-        $this->call(DevelopmentPersonnelSeeder::class);
-        $this->call(DevelopmentProductsSeeder::class);
-        $this->call(DevelopmentCompaniesSeeder::class);
-        $this->call(DevelopmentSectorsSeeder::class);
-        $this->call(DevelopmentUsersSeeder::class);
-        $this->call(DevelopmentQuotesSeeder::class);
-        $this->call(DevelopmentRegionSeeder::class);
+//        $this->call(RolesAndPermissionsSeeder::class);
+//        $this->call(DevelopmentPersonnelSeeder::class);
+//        $this->call(DevelopmentProductsSeeder::class);
+//        $this->call(DevelopmentCompaniesSeeder::class);
+//        $this->call(DevelopmentSectorsSeeder::class);
+//        $this->call(DevelopmentUsersSeeder::class);
+//        $this->call(DevelopmentQuotesSeeder::class);
+//        $this->call(DevelopmentRegionSeeder::class);
 //        $this->call(MigrationTermsSeeder::class);
 //        $this->call(MigrationRegionSeeder::class);
 //        $this->call(MigrationRatesSeeder::class);
 //        $this->call(MigrationProductsSeeder::class);
 //        $this->call(MigrationClientsSeeder::class);
 //        $this->call(QuoteProjectsHoursEditPermission::class);
-        $this->call(SolutionsPermissions::class);
-        $this->call(ProjectsPermissions::class);
-        $this->call(QuotesSolutionsPermissions::class);
-        $this->call(QuotesProjectsPermissions::class);
+//        $this->call(SolutionsPermissions::class);
+//        $this->call(ProjectsPermissions::class);
+//        $this->call(QuotesSolutionsPermissions::class);
+//        $this->call(QuotesProjectsPermissions::class);
+        $this->call(ViewQuotesFromAllRegionsPermission::class);
     }
 }
