@@ -54,7 +54,9 @@ class QuoteResource extends Resource
         if (Auth::user()->can('View All Regions In Quotes')) {
             return parent::getEloquentQuery()->where('type', 'standard');
         }
-        return Quote::whereIn('region_id',Auth::user()->discount)->orWhereNull('region_id')->where('type', 'standard');
+        $regions = Auth::user()->discount;
+        array_push($regions, null);
+        return parent::getEloquentQuery()->whereIn('region_id',$regions)->where('type', 'standard');
     }
 
     public static function form(Form $form): Form
