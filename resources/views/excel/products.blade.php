@@ -1,6 +1,8 @@
 <table>
     <thead>
     <tr>
+        <th>Created At</th>
+        <th>Updated At</th>
         <th>ID</th>
         <th></th>
         <th></th>
@@ -15,6 +17,8 @@
     <tbody>
     @foreach($products as $product)
         <tr>
+            <td>{{ $product->created_at->format('Y-m-d H:i:s') }}</td>
+            <td>{{ $product->updated_at->format('Y-m-d H:i:s') }}</td>
             <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td></td>
@@ -27,6 +31,8 @@
         </tr>
         @foreach($product->solutions()->get() as $solution)
             <tr>
+                <td>{{ $solution->created_at->format('Y-m-d H:i:s') }}</td>
+                <td>{{ $solution->updated_at->format('Y-m-d H:i:s') }}</td>
                 <td>{{ $solution->id }}</td>
                 <td></td>
                 <td>{{ $solution->name }}</td>
@@ -39,6 +45,8 @@
             </tr>
             @foreach($solution->projects()->get() as $project)
                 <tr>
+                    <td>{{ $project->created_at->format('Y-m-d H:i:s') }}</td>
+                    <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
                     <td>{{ $project->id }}</td>
                     <td></td>
                     <td></td>
