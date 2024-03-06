@@ -25,6 +25,7 @@ use Database\Seeders\Production\QuotesProjectsPermissions;
 use Database\Seeders\Production\QuotesSolutionsPermissions;
 use Database\Seeders\Production\R20240301\AddAllowToAddDiscountsPermission;
 use Database\Seeders\Production\SolutionsPermissions;
+use Database\Seeders\Production\ViewQuotesFromAllRegionsPermission;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -53,5 +54,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(QuotesSolutionsPermissions::class);
 //        $this->call(QuotesProjectsPermissions::class);
         $this->call(AddAllowToAddDiscountsPermission::class);
+        $this->call(ViewQuotesFromAllRegionsPermission::class);
     }
 }

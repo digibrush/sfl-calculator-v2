@@ -50,7 +50,12 @@ class QuoteResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->where('type', 'standard');
+        if (Auth::user()->can('View All Regions In Quotes')) {
+            return parent::getEloquentQuery()->where('type', 'standard');
+        }
+        $regions = Auth::user()->discount;
+        array_push($regions, null);
+        return parent::getEloquentQuery()->whereIn('region_id',$regions)->where('type', 'standard');
     }
 
     public static function form(Form $form): Form
@@ -69,6 +74,14 @@ class QuoteResource extends Resource
                                             ->relationship('client', 'name', fn (Builder $query) => $query->where('type','client'))
                                             ->searchable()
                                             ->required()
+                                            ->columnSpan(12),
+                                        Forms\Components\Select::make('region')
+                                            ->label('Region')
+                                            ->relationship('region', 'name')
+                                            ->options(Region::whereIn('id', Auth::user()->discount)->get()->pluck('name', 'id'))
+                                            ->searchable()
+                                            ->required()
+                                            ->preload()
                                             ->columnSpan(12),
                                         Forms\Components\TextInput::make('reference')
                                             ->required()
@@ -245,6 +258,8 @@ class QuoteResource extends Resource
                     ->label('Quote Valid Till')
                     ->date(),
                 Tables\Columns\TextColumn::make('assignee.name')
+                    ->toggleable(),
+                Tables\Columns\TextColumn::make('region.name')
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('client.name')
                     ->toggleable(),
