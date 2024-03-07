@@ -23,7 +23,7 @@ class PersonnelResource extends Resource
 
     protected static ?string $navigationGroup = 'System Settings';
 
-    protected static ?int $navigationSort = 14;
+    protected static ?int $navigationSort = 13;
 
     public static function canViewAny(): bool
     {
