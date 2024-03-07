@@ -56,7 +56,7 @@ class QuoteResource extends Resource
         }
         $regions = Auth::user()->discount;
         array_push($regions, null);
-        return parent::getEloquentQuery()->whereIn('region_id',$regions)->where('type', 'standard');
+        return parent::getEloquentQuery()->whereIn('region_id',$regions)->orWhereNull('region_id')->where('type', 'standard');
     }
 
     public static function form(Form $form): Form

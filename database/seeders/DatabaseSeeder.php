@@ -51,6 +51,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProjectsPermissions::class);
 //        $this->call(QuotesSolutionsPermissions::class);
 //        $this->call(QuotesProjectsPermissions::class);
-        $this->call(ViewQuotesFromAllRegionsPermission::class);
+//        $this->call(ViewQuotesFromAllRegionsPermission::class);
     }
 }
