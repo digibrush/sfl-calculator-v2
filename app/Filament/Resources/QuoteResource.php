@@ -79,6 +79,15 @@ class QuoteResource extends Resource
                             ->schema([
                                 Forms\Components\Grid::make(12)
                                     ->schema([
+                                        Forms\Components\Select::make('call_type')
+                                            ->label('Call Type')
+                                            ->required()
+                                            ->options([
+                                                'cold' => 'Cold',
+                                                'warm' => 'Warm',
+                                                'hot' => 'Hot',
+                                            ])
+                                            ->columnSpan(12),
                                         Forms\Components\Select::make('client_id')
                                             ->label('Client')
                                             ->relationship('client', 'name', fn (Builder $query) => $query->where('type','client'))
@@ -251,6 +260,17 @@ class QuoteResource extends Resource
                 Tables\Columns\TextColumn::make('reference')
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\BadgeColumn::make('call_type')
+                    ->enum([
+                        'cold' => 'Cold',
+                        'warm' => 'Warm',
+                        'hot' => 'Hot',
+                    ])
+                    ->colors([
+                        'secondary' => 'cold',
+                        'warning' => 'warm',
+                        'danger' => 'hot',
+                    ]),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created Date')
                     ->dateTime(),
@@ -284,7 +304,13 @@ class QuoteResource extends Resource
                     ]),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('call_type')
+                    ->multiple()
+                    ->options([
+                        'cold' => 'Cold',
+                        'warm' => 'Warm',
+                        'hot' => 'Hot',
+                    ])
             ])
             ->actions([
                 Tables\Actions\Action::make('duplicate')
