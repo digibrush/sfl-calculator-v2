@@ -58,6 +58,7 @@ class DocumentsRelationManager extends RelationManager
             ->headerActions([
                 Tables\Actions\ButtonAction::make('generate')
                     ->label('Generate PDF')
+                    ->visible(fn (RelationManager $livewire): bool => ($livewire->ownerRecord->client == null) ? false : true)
                     ->url(fn (RelationManager $livewire): string => url('/quote/'.$livewire->ownerRecord->id.'/generate-pdf'))
                     ->icon('heroicon-s-refresh'),
             ])
