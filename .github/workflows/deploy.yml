@@ -18,10 +18,10 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY }}
+          host: ${{ secrets.STAGING_HOST }}
+          port: ${{ secrets.STAGING_PORT }}
+          username: ${{ secrets.STAGING_USERNAME }}
+          key: ${{ secrets.STAGING_SSHKEY }}
           script: "cd /var/www/html/sfl-calculator-backend && ./.scripts/deploy.sh"
   deploy-production:
     runs-on: ubuntu-latest
@@ -30,8 +30,8 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY }}
+          host: ${{ secrets.STAGING_HOST }}
+          port: ${{ secrets.STAGING_PORT }}
+          username: ${{ secrets.STAGING_USERNAME }}
+          key: ${{ secrets.STAGING_SSHKEY }}
           script: "cd /var/www/html/sfl-calculator-backend && ./.scripts/deploy.sh"
