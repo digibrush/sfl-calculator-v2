@@ -30,8 +30,8 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.STAGING_HOST }}
-          port: ${{ secrets.STAGING_PORT }}
-          username: ${{ secrets.STAGING_USERNAME }}
-          key: ${{ secrets.STAGING_SSHKEY }}
-          script: "cd /var/www/html/sfl-calculator-backend && ./.scripts/deploy.sh"
+          host: ${{ secrets.PRODUCTION_HOST }}
+          port: ${{ secrets.PRODUCTION_PORT }}
+          username: ${{ secrets.PRODUCTION_USERNAME }}
+          key: ${{ secrets.PRODUCTION_SSHKEY }}
+          script: "cd /var/www/html/sfl-calculator-v2 && ./.scripts/deploy.sh"
