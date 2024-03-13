@@ -42,6 +42,8 @@ class QuoteController extends Controller
         $new_quote->validity_upto = $quote->validity_upto;
         $new_quote->expires_at = now()->addDays($quote->validity_upto);
         $new_quote->saveQuietly();
+        $new_quote->region()->associate($quote->region);
+        $new_quote->saveQuietly();
 
         foreach ($quote->products()->orderBy('order','ASC')->get() as $product) {
             $sub_type = $type;
