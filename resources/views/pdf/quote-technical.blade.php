@@ -435,7 +435,7 @@
                                             <tbody style="padding-top: 20px;">
                                             <tr>
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
-                                                <td width="60%" style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }} (Total)</td>
+                                                <td width="60%" style="padding-top: 10px;padding-bottom: 10px; color: black;"><b><i>{{ $project->solution->name }} (Total)</i></b></td>
                                                 <td width="30%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; color: black;">
                                                     {{ ((float)$project->solution->hours) }}
                                                 </td>
