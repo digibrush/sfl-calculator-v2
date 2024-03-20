@@ -439,7 +439,7 @@
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                                 <td width="60%" style="padding-top: 10px;padding-bottom: 10px; color: black;"><i>{{ $project->solution->name }} (Total)</i></td>
                                                 <td width="15%" style="text-align: right; padding-top: 10px;padding-bottom: 10px; padding-right: 85px; color: black;">
-                                                    <i>{{ ((float)$project->solution->hours) }}</i>
+                                                    <i>{{ number_format(((float)$project->solution->hours),1) }}</i>
                                                 </td>
                                                 <td width="15%" style="text-align: right; padding-top: 10px;padding-bottom: 10px; padding-right: 85px; color: black;">
                                                     <i>{{ number_format(((float)$project->solution->cost),2) }}</i>
@@ -474,7 +474,7 @@
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                             <td width="60%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c; padding-left: 20px;">{{ $project->name }}</td>
                                             <td width="15%" style="text-align: right;padding-top: 10px;padding-bottom: 10px; padding-right: 65px; color: #0c283c;">
-                                                {{ ((float)$project->total_hours) }}
+                                                {{ number_format(((float)$project->total_hours),1) }}
                                             </td>
                                             <td width="15%" style="text-align: right;padding-top: 10px;padding-bottom: 10px; padding-right: 65px; color: #0c283c;">
                                                 {{ number_format(((float)$project->total_cost),2) }}
