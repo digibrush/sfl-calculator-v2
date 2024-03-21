@@ -24,6 +24,9 @@ php artisan optimize
 # Run database migrations
 php artisan migrate --force
 
+#set file permissions to storage folder
+sudo chmod -R 777 storage
+
 # Restart queue service
 sudo systemctl restart sfl-calculator-backend-artisan
 
