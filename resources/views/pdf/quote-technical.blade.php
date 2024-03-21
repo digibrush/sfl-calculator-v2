@@ -437,7 +437,7 @@
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                                 <td width="75%" style="padding-top: 10px;padding-bottom: 10px; color: black;">{{ $project->solution->name }} (Total)</td>
                                                 <td width="15%" style="text-align: center; padding-top: 10px;padding-bottom: 10px; padding-right: 85px; color: black;">
-                                                    {{ ((float)$project->solution->hours) }}
+                                                    {{ number_format(((float)$project->solution->hours),1) }}
                                                 </td>
                                                 <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                             </tr>
@@ -469,7 +469,7 @@
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                             <td width="75%" style="padding-top: 10px;padding-bottom: 10px; color: #0c283c; padding-left: 20px;"><i>{{ $project->name }}</i></td>
                                             <td width="15%" style="text-align: center;padding-top: 10px;padding-bottom: 10px; padding-right: 65px; color: #0c283c;">
-                                                <i>{{ ((float)$project->total_hours) }}</i>
+                                                <i>{{ number_format(((float)$project->total_hours),1) }}</i>
                                             </td>
                                             <td width="5%" style="padding-top: 10px;padding-bottom: 10px">&nbsp;</td>
                                         </tr>
