@@ -18,4 +18,7 @@ php artisan optimize
 # Run database migrations
 php artisan migrate --force
 
+# Restart queue service
+sudo systemctl restart sfl-calculator-backend-artisan
+
 echo "Deployment finished!"
