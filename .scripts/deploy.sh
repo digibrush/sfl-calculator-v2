@@ -10,6 +10,12 @@ git pull
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 # Clear the old cache
+composer dump-autoload
+
+# Clear the old cache
+php artisan optimize:clear
+
+# Clear the old cache
 php artisan clear-compiled
 
 # Recreate cache
@@ -17,6 +23,9 @@ php artisan optimize
 
 # Run database migrations
 php artisan migrate --force
+
+#set file permissions to storage folder
+sudo chmod -R 777 storage
 
 # Restart queue service
 sudo systemctl restart sfl-calculator-backend-artisan

@@ -16,7 +16,7 @@ class DocumentObserver
         GenerateQuoteFinancialPDF::dispatch($document)
             ->delay(now()->addSeconds(2));
         GenerateQuoteTechnicalPDF::dispatch($document)
-            ->delay(now()->addSeconds(2));
+            ->delay(now()->addSeconds(10));
     }
 
     /**
